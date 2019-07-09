@@ -17,7 +17,6 @@ class Hero:
         self.position = gameboard.start
         self.gameboard = gameboard
         self.gameboard.hero = self
-        self.gameboard.goal = gameboard.goal
         
 
     def move(self, travel):
@@ -30,10 +29,11 @@ class Hero:
 
 
  # WORKING HERE FOR NOW
-    def found_goal(self): # if hero stands on exit/goal
+    def hero_found_goal(self): # if hero stands on exit/goal
         """ Method that checks if the hero is on the position gameboard.goal, 
         if TRUE, raise GameWon Exception 'you won !' """
-        
+
         if self.position == self.gameboard.goal:
-            raise GameWon ("You won, well done")
+            raise GameWon ("You won ! There you go buddy")
+        # does not work yet... 
         
