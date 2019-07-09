@@ -54,7 +54,7 @@ class GameBoard(set):
                 # Si nous avons dans colonne le caractere egale a "W",  ajoute-le dans la liste self.walls
                 elif colonne == "W" : #It's a wall
                     self.walls.append(pos)
-            # on ajoute à width et lenght un numéro de colonne en '+'
+            # on ajoute à width et lenght une colonne et ligne en '+'
             self.width = n_colonne +1
             self.length = n_lines +1
 
@@ -89,6 +89,7 @@ class GameBoard(set):
 
     def __contains__(self, position):
         """ This methods keeps the HERO on the MAP horizontally, he can't go outside the map's length or width """
+        
         return position in self.passages
 
 
