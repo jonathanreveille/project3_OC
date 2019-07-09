@@ -9,28 +9,31 @@ from demo.gamewon import GameWon
 class Hero:
     """ This class will define the position of 
     the hero at start position,
-    then his mouvement,
-    and where he stands after his mouvement on the map """
+    then on the gameboard,
+    and where the hero stands on the gameboard"""
 
     def __init__(self, gameboard):
        
         self.position = gameboard.start
         self.gameboard = gameboard
         self.gameboard.hero = self
+        self.gameboard.goal = gameboard.goal
         
 
     def move(self, travel):
-        """ method allows our hero to move on the map """
+        """ Method that allows our hero to move on the map from its position to a new position """
         
         new_position = self.position + travel
+
         if new_position in self.gameboard:
             self.position = new_position
 
 
+ # WORKING HERE FOR NOW
     def found_goal(self): # if hero stands on exit/goal
-        """ Method that checks if hero is on position gameboard.goal, if TRUE,
-        raise GameWon Exception 'you won !' . """
-
+        """ Method that checks if the hero is on the position gameboard.goal, 
+        if TRUE, raise GameWon Exception 'you won !' """
+        
         if self.position == self.gameboard.goal:
-            raise GameWon ("You made it, congrats !!")
-      
+            raise GameWon ("You won, well done")
+        
