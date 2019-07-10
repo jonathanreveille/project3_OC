@@ -27,13 +27,26 @@ class Hero:
         if new_position in self.gameboard:
             self.position = new_position
 
+        if self.position == self.gameboard.goal:
+            raise GameWon ("you made it!")
 
  # WORKING HERE FOR NOW
-    def hero_found_goal(self): # if hero stands on exit/goal
-        """ Method that checks if the hero is on the position gameboard.goal, 
-        if TRUE, raise GameWon Exception 'you won !' """
+    #def found_goal(self): # if hero stands on exit/goal
+      #  """ Method that checks if the hero is on the position gameboard.goal, 
+      #  if TRUE, raise GameWon Exception 'you won !' """
+       
 
-        if self.position == self.gameboard.goal:
-            raise GameWon ("You won ! There you go buddy")
+
+        #try:
+           # if self.position != self.gameboard.passages:
+            #    pass
+            #elif self.position != self.gameboard.start:
+            #    pass
+        #except self.position == self.gameboard.goal:
+                #raise GameWon ("Well Done, you made it alive !")
+
+
+        #if self.position == self.gameboard.goal:
+            #raise GameWonhygf ("You won ! There you go buddy")
         # does not work yet... 
         
