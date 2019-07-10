@@ -23,6 +23,7 @@ class Position(list):
        
         if self.x != self.x + mouvement.dx:
             return Position((self.x + mouvement.dx), self.y)
+            
         elif self.y != self.y + mouvement.dy:
             return Position(self.x, (self.y + mouvement.dy))
 
