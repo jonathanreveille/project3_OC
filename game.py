@@ -13,17 +13,19 @@ def main():
     user = ""
 
     while True:
+
         try:
             while user != "quit":
                 print(gameboard)
                 
                 travel = input("Where do you want hero to go (right/left/up/down/quit)?  ")
+
                 if travel in ('left', 'right', 'up', 'down'):
                     hero.move(globals()[travel])
-                
 
         except GameWon as e:
             print(e)
+            break
     
 
 main()
