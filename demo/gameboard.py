@@ -2,7 +2,8 @@
 
 from demo.position import Position
 
-class GameBoard(set):
+
+class GameBoard():
     """ This class represents the gameboard and its
     different parameters (length, width)"""
 
@@ -91,7 +92,6 @@ class GameBoard(set):
         """ This methods keeps the HERO on the MAP horizontally, he can't go outside the map's length or width """
         
         return position in self.passages
-
 
 
     #def add_hero_on_map(self):
