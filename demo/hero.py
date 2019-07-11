@@ -4,6 +4,7 @@ from demo.position import Position
 from demo.mouvement import Mouvement
 from demo.gameboard import GameBoard
 from demo.gamewon import GameWon
+from demo.items import Items, tube, ether, needle
 
 
 class Hero:
@@ -17,6 +18,7 @@ class Hero:
         self.position = gameboard.start
         self.gameboard = gameboard
         self.gameboard.hero = self
+        self.items = None
         
 
     def move(self, travel):
@@ -29,6 +31,26 @@ class Hero:
 
         if self.position == self.gameboard.goal:
             raise GameWon ("you made it!")
+
+    
+    #WORKING HERE NOW
+    def store_item(self):
+        """ method where the hero can keep his items """
+        
+        stored_items = []
+
+        while len(stored_items) != 3:
+            if self.position == self.items.position in self.gameboard:
+                stored_items += self.items
+            else:
+                continue
+
+        
+        #if bag != len(2) is False:
+        
+
+        #if self.position == 
+
 
  # WORKING HERE FOR NOW
     #def found_goal(self): # if hero stands on exit/goal
