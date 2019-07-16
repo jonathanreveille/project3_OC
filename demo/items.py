@@ -7,27 +7,38 @@ Mcgaver,
 Mcgavers (hero) should obtain a way to pick up and save up thos items 
 """
 
-import random
-
-
-
-class Items:
+class Item:
 
     """ this class will create objects that will represent the items for the hero
     on the gameboard to pick-up,
     those items are going to be positionned randomly on self.gameboard.passages 
     with the help of the module random (to import) """
 
-    def __init__(self):
+    def __init__(self, name):
         """ construit un objet item de la classes Items """
-        self.items = ""
         self.position = None
+        self.name = name
 
-needle = Items()
 
-ether = Items()
+    def __repr__(self):
+        return f"Items(position={self.position})"
 
-tube = Items()
+
+    def __eq__(self, obj):
+        if not isinstance(obj, Item):
+            position = obj
+        else:
+            position = obj.position
+        return self.position == position   
+
+
+N = Item("needle")
+
+E = Item("ether")
+
+T = Item("tube")
+
+
 
 
 
