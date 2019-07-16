@@ -29,6 +29,14 @@ class Position(list):
 
        #return Position(self.x, (self.y + mouvement.dy)) and Position((self.x + mouvement.dx), self.y)
 
-    def __eq__(self, other):
-        """ method to test matching between 2 positions """
-        return self.x == other.x and self.y == other.y
+    #def __eq__(self, other):
+    #    """ method to test matching between 2 positions """
+    #    return self.x == other.x and self.y == other.y
+   
+
+    def __eq__(self, obj):
+        if not isinstance(obj, Position):
+            position = obj.position
+        else:
+            position = obj
+        return self.x == position.x and self.y == position.y
