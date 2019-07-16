@@ -2,6 +2,7 @@
 
 from random import sample
 from demo.position import Position
+from demo.items import Item
 import random
 
 
