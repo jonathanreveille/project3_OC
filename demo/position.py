@@ -33,7 +33,7 @@ class Position(list):
     #    """ method to test matching between 2 positions """
     #    return self.x == other.x and self.y == other.y
    
-
+   
     def __eq__(self, obj):
         if not isinstance(obj, Position):
             position = obj.position

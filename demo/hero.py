@@ -34,6 +34,7 @@ class Hero:
 
         # maybe add here the method to pick up weapons 
 
+
     #WORKING HERE NOW
     def store_items(self):
         """ method where the hero can keep his items """
@@ -54,25 +55,3 @@ class Hero:
         #if bag != len(2) is False:
 
         #if self.position == 
-
-
- # WORKING HERE FOR NOW
-    #def found_goal(self): # if hero stands on exit/goal
-      #  """ Method that checks if the hero is on the position gameboard.goal, 
-      #  if TRUE, raise GameWon Exception 'you won !' """
-       
-
-
-        #try:
-           # if self.position != self.gameboard.passages:
-            #    pass
-            #elif self.position != self.gameboard.start:
-            #    pass
-        #except self.position == self.gameboard.goal:
-                #raise GameWon ("Well Done, you made it alive !")
-
-
-        #if self.position == self.gameboard.goal:
-            #raise GameWonhygf ("You won ! There you go buddy")
-        # does not work yet... 
-        

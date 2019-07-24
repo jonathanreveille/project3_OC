@@ -41,7 +41,7 @@ class GameBoard():
             maze = [line.strip("") for line in f.readlines() if line.strip()]
             maze = list(maze)
         #Pour chaque numéro de ligne(x), et ligne dans maze
-            #Pour chaque numéro de colonne(y), et colonne dans maze
+            #Pour chaque numéro de colonne(y), et colonne dans ligne
         for n_lines,lines in enumerate(maze):
             for n_colonne, colonne in enumerate(lines):
                 # on sauve dans 'pos' nos positions x et y selon le caractère rencontré dans notre fichier maze
@@ -57,9 +57,6 @@ class GameBoard():
                 if colonne == "G":
                     self.passages.append(pos)
                     self.goal = pos
-                #if colonne == "I":
-                 #   self.passages.append(pos)
-                  #  self.items = pos
                 # Si nous avons dans colonne le caractere egale a "W",  ajoute-le dans la liste self.walls
                 elif colonne == "W" : #It's a wall
                     self.walls.append(pos)
@@ -79,6 +76,7 @@ class GameBoard():
 
        #with open('levels/maze1.txt') as f:
             # self.maze = [line.strip("") for line in f.readlines() if line.strip()]  ONLY in LOAD_FROM_FILE
+
         list_str = []
 
         for line in range(self.length):
@@ -105,7 +103,9 @@ class GameBoard():
 
     def add_items(self, item):
         """ method that adds item on the map """
+       
         item.position = self.random.pop()
+
         self.items.append(item)
 
 
@@ -114,36 +114,15 @@ class GameBoard():
         
         return position in self.passages
 
+        # faire vérification pour voir si cette position existe dans liste I
+        # liste WALL, LIste passages, Liste Items 
+        # True or False
 
-    #def add_hero_on_map(self):
-        # pas debesoin d'ajouter hero sur map. dans instance de notre hero : position déprt sur la position de depart de la map
-        # on créer dans hero : attribut Poosition : positionner le héro sur la map --> fixer attibut positiond e notre hero sur gameboard.start
-        
-      #  """ this method is to insert the Hero into the map """
-
-
-
-    #    if self.hero.position == self.start:
-    #        return True
-
-    #    if self.hero.position.mouvement == self.passages:
-    #        return True 
-        
-     #   if self.hero.position == self.walls:
-     #       return False
-        
-     #   if self.hero.position.mouvement == self.walls:
-      #      return False 
-
-    
-    # hero in gameboard represented by "H"
-    # if hero is in self.passages = True 
-    # if hero is in self.walls = False
-    # if hero mouvement in self.passages = True 
-    # if hero mouvement in self.walls = False
-
-        #initialize hero's position : at this position [0][0]
-        #hero position : (maze[0][0])
+        # Si oui, on ajoute dans inventaire
+        # on supprime de la liste I 
+        # Si c'est dans la liste I on supprime la position dans I et on la rajoute dans passage
+        # liste passage on ajoute la position
+        # on enregistre dans notre inventaire qu'on enregistre sur I
 
 
 #def main():
@@ -154,53 +133,3 @@ class GameBoard():
 
 #if __name__ == "__main__":
    # main()
-
-# )
-#GameBoard créer un attribut qui est une liste de passage
-#Dés qu'on rencontre un point, on rajoute les coordonnées de ce point dans la liste
-#ce qui est # on ne l'ajoute pas 
-#ce qui est . on l'ajoute 
-#car . est un passage autorisé 
-#tout ca dans GameBoard
-
-#Adapter la méthode str pour afficher le labyrinthe
-
-#Approprié de __contains__
-
-#position est dans la liste des passages
-
-#Adapter classe mouvement (x et y)
-
-
-#Parcourir les lignes. Et colonnes d’un fichier 
-
-# With open (map1.txt, « r ») as fichier:
-# for n_ligne, ligne in enumerate(fichier): 
-    #for n_colonne, colonne in enumerate(ligne): 
-   # faire quelque chose avec les Position(n_colonne, n_ligne)
-# fichier <- ouvrir le fichier
-
-
-#with open(map1.txt, "r") as fichier:
- #   for n_ligne, ligne in enumerate(fichier):
- #      for n_colonne, colonne in enumerate(ligne):
-
-
-# . = passage
-# = mur 
-#s = start
-#e = end
-
-#15 lignes de 15 caractères
-#GameBoard créer un attribut qui est une liste de passage
-#Dés qu'on rencontre un point, on rajoute les coordonnées de ce point dans la liste
-#ce qui est # on ne l'ajoute pas 
-#ce qui est . on l'ajoute 
-#car . est un passage autorisé 
-#tout ca dans GameBoard
-
-#Adapter la méthode str pour afficher le labyrinthe
-
-#Approprié de __contains__
-#position est dans la liste des passages
-#Adapter classe mouvement (x et y)
