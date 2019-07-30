@@ -1,3 +1,6 @@
+#! /usr/bin/env python3
+# coding : utf-8 
+
 """ This module is the main program to run the game """
 
 from demo.gameboard import GameBoard
