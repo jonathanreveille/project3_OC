@@ -1,3 +1,6 @@
+#! /usr/bin/env python3
+# coding : utf-8 
+
 """ This module allows us to represent our hero on the map, it will define many parameter such as ..."""
 
 from demo.position import Position

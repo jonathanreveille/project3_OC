@@ -1,3 +1,6 @@
+#! /usr/bin/env python3
+# coding : utf-8 
+
 """ this module will allow us to determine the length (and width) of the gameboard (map) """
 
 from random import sample

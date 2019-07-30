@@ -1,3 +1,6 @@
+#! /usr/bin/env python3
+# coding : utf-8 
+
 """ 
 This module will represent all different tools that McGaver
 can pick up in the maze.

@@ -1,3 +1,6 @@
+#! /usr/bin/env python3
+# coding : utf-8 
+
 """ this module will allows the programm to move our hero from one case to the other one """
 
 
