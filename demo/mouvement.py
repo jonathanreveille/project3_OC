@@ -14,7 +14,7 @@ class Mouvement:
         do when we implement a new position from it's last position, dx and y will be added to x and y position"""
         self.dx = dx
         self.dy = dy
-
+        
 
 # if our hero goes LEFT, we will decrease x by 1 - this is the object to go left
 left = Mouvement(dx = -1, dy=0)
