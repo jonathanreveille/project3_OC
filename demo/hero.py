@@ -8,6 +8,7 @@ from demo.mouvement import Mouvement
 from demo.gameboard import GameBoard
 from demo.gamewon import GameWon
 from demo.items import Item
+from demo.founditem import FoundItem
 
 
 class Hero:
@@ -36,24 +37,23 @@ class Hero:
             raise GameWon ("you made it!")
 
         # maybe add here the method to pick up weapons 
-
-
+    
     #WORKING HERE NOW
-    def store_items(self):
-        """ method where the hero can keep his items """
+    #def store_items(self):
+        #""" method where the hero can keep his items """
         # hero's inventory. If hero's inventory == 3: 
         # raise 'You just build a weapon'
 
         # creating empty list to take in the items when hero finds it in labyrinth
-        self.items = []
+       # self.items = []
         # compteur while loop
-        i = 0
-        while i <= 3: # because only 3 items
+       # i = 0
+       # while i <= 3: # because only 3 items
             #if hero's position is on self.items.position in self.gameboard.passages:
-            if self.position == self.items in self.gameboard.passages:
+         #   if self.position == self.items in self.gameboard.passages:
                 # add self.items to the list
-                self.items.append(self.items)
-                i += 1
+          #      self.items.append(self.items)
+          #      i += 1
 
         #if bag != len(2) is False:
 
