@@ -38,6 +38,8 @@ class Position(list):
    
    
     def __eq__(self, obj):
+        """ method to test matching between 2 positions """
+
         if not isinstance(obj, Position):
             position = obj.position
         else:
