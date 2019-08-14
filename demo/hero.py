@@ -31,10 +31,12 @@ class Hero:
 
         if new_position in self.gameboard.items:
             self.position = new_position
-            #del self.gameboard.items[0]
-            self.gameboard.items.pop()
-            #self.gameboard.items.remove('I')
+            
+            self.gameboard.items.remove('I') # that is the one to keep, but AttributeError occurs
             self.bag.append("I")
+
+            #del self.gameboard.items[0]
+            #self.gameboard.items.pop() or remove("I")
             print(self.bag)
 
         elif new_position in self.gameboard.passages:
