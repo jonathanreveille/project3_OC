@@ -19,20 +19,25 @@ class Item:
 
     def __init__(self, name):
         """ construit un objet item de la classes Items """
-        self.position = None
         self.name = name
-
+        self.x = None
+        self.y = None
+        
 
     def __repr__(self):
-        return f"Items(position={self.position})"
+        #return f"Items(position={self.position})"
+        return f"Items({self.x},{self.y})"
 
 
     def __eq__(self, obj):
-        if not isinstance(obj, Item):
-            position = obj
-        else:
+        """ method  to test if 2 positions are matching"""
+
+        if isinstance(obj, Item):
             position = obj.position
-        return self.position == position   
+        else:
+            position = obj
+        return self.x == position.x and self.y == position.y
+
 
 
 N = Item("needle")

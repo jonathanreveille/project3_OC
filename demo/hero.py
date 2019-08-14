@@ -8,8 +8,12 @@ from demo.mouvement import Mouvement
 from demo.gameboard import GameBoard
 from demo.gamewon import GameWon
 from demo.items import Item
+<<<<<<< HEAD
 from demo.founditem import FoundItem
 
+=======
+from demo.gameover import GameOver
+>>>>>>> Branch1
 
 class Hero:
     """ This class will define the position of 
@@ -22,17 +26,21 @@ class Hero:
         self.position = gameboard.start
         self.gameboard = gameboard
         self.gameboard.hero = self
-        self.items = []
+        self.bag = []
         
 
     def move(self, travel):
         """ Method that allows our hero to move on the map from its position to a new position """
-        
+
         new_position = self.position + travel
 
-        if new_position in self.gameboard:
+        if new_position in self.gameboard.items:
             self.position = new_position
+            
+            self.gameboard.items.remove('I') # that is the one to keep, but AttributeError occurs
+            self.bag.append("I")
 
+<<<<<<< HEAD
         if self.position == self.gameboard.goal:
             raise GameWon ("you made it!")
 
@@ -56,5 +64,23 @@ class Hero:
           #      i += 1
 
         #if bag != len(2) is False:
+=======
+            #del self.gameboard.items[0]
+            #self.gameboard.items.pop() or remove("I")
+            print(self.bag)
 
-        #if self.position == 
+        elif new_position in self.gameboard.passages:
+            self.position = new_position
+        
+        elif new_position in self.gameboard.walls:
+            return self.position
+        
+        elif new_position in self.gameboard.goal:
+            self.position = new_position
+        
+        elif self.position == self.gameboard.goal and len(self.bag)==3:
+            raise GameWon ("you made it Morty ! you have just killed the guard!")
+>>>>>>> Branch1
+
+        else:
+            raise GameOver ("you just died...try again")
