@@ -6,9 +6,9 @@ the module mouvement to calculate its itinary """
 
 from demo.mouvement import Mouvement
 
+
 class Position(list):
     """ This class will define where the hero is on the map with the coordinates (x,y) """
-
 
     def __init__(self, x, y):
         """ Construtor, x and y position has (x,y) """
@@ -29,17 +29,13 @@ class Position(list):
             
         elif self.y != self.y + mouvement.dy:
             return Position(self.x, (self.y + mouvement.dy))
-
-       #return Position(self.x, (self.y + mouvement.dy)) and Position((self.x + mouvement.dx), self.y)
-
-    #def __eq__(self, other):
-    #    """ method to test matching between 2 positions """
-    #    return self.x == other.x and self.y == other.y
    
-   
+
     def __eq__(self, obj):
+        """ method  to test if 2 positions  are matching"""
+
         if not isinstance(obj, Position):
             position = obj.position
         else:
-            position = obj
+           position = obj
         return self.x == position.x and self.y == position.y
