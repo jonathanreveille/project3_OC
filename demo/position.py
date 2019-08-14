@@ -32,11 +32,7 @@ class Position(list):
    
 
     def __eq__(self, obj):
-<<<<<<< HEAD
-        """ method to test matching between 2 positions """
-=======
         """ method  to test if 2 positions  are matching"""
->>>>>>> Branch1
 
         if not isinstance(obj, Position):
             position = obj.position
