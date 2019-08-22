@@ -20,6 +20,7 @@ class Item:
     def __init__(self, name):
         """ construit un objet item de la classes Items """
         self.name = name
+        self.position = None
         self.x = None
         self.y = None
         
@@ -29,41 +30,24 @@ class Item:
         return f"Items({self.x},{self.y})"
 
 
+   # def __eq__(self, obj):
+      #  """ method  to test if 2 positions are matching"""
+
+      #  if isinstance(obj, Item):
+      #      position = obj.position
+      #  else:
+       #     position = obj
+       # return self.x == position.x and self.y == position.y
+
     def __eq__(self, obj):
-        """ method  to test if 2 positions are matching"""
-
-        if isinstance(obj, Item):
-            position = obj.position
+        if not isinstance(obj, Item):
+            self.position = obj
         else:
-            position = obj
-        return self.x == position.x and self.y == position.y
-
-
+            self.position = obj.position
+        return self.position == self.position
 
 N = Item("needle")
 
 E = Item("ether")
 
 T = Item("tube")
-
-
-
-
-
-    #def sample(self): PUT IT IN GAMEBOARD PERHAPS 
-        # On créer une liste 'random_position' vide
-
-        #random_position = []
-        # on utilise la fonction random.sample(population qui est une séquence donc self.passages, k=3 on tire 3 positions)
-        ##random_position = []
-        #random.sample(self.passages, k=3)
-        ##gameboard.load_from_file()
-
-
-        #importer GameBoard dans ce module
-
-        
-
-       # on tire 3 positions dans self.passages
-
-        #random.sample(self.passages, k=3)

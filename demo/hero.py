@@ -31,6 +31,9 @@ class Hero:
         if new_position in self.gameboard.items:
             self.position = new_position
             self.gameboard.items.remove('I') # that is the one to keep, but AttributeError occurs
+            #self.gameboard.items.remove([0])
+            #self.gameboard.items.pop(0)
+            #del self.gameboard.items[0]
             self.bag.append("I")
             print(self.bag)
 
@@ -42,10 +45,28 @@ class Hero:
         
         elif new_position in self.gameboard.goal:
             self.position = new_position
-        
-        elif self.position == self.gameboard.goal and len(self.bag)==3:
-            raise GameWon ("you made it Morty ! you have just killed the guard!")
+                
+        elif new_position in self.gameboard.goal:
+            self.position = new_position
 
-        else:
-            raise GameOver ("you just died...try again")
+        elif self.position in self.gameboard.goal and len(self.bag) == 3:
+            raise GameWon("you made it Morty ! you have just killed theguard!")
+
+        elif  self.position ==  self.gameboard.goal and len(self.bag)!= 3:
+            raise GameOver("you forgot an item on the map, you just died...try again")
+
+
+        #    raise GameWon ("you made it Morty ! you have just killed theguard!"
+            #if  len(self.bag)==3:
+                #raise GameWon("you made it Morty ! you have just killed theguard!")
+            #else:
+                #raise GameOver("you forgot an item on the map, you just died...try again")
+
+       # elif len(self.bag)== 3 and new_position in self.gameboard.goal:
+        #)
+
+        #else:
+        #    raise GameOver(
+                #"you forgot an item on the map, you just died...try again"
+                #)
 
