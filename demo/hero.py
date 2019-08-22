@@ -30,8 +30,8 @@ class Hero:
 
         if new_position in self.gameboard.items:
             self.position = new_position
-            self.gameboard.items.remove('I') # that is the one to keep, but AttributeError occurs
-            #self.gameboard.items.remove([0])
+            #self.gameboard.items.remove('I') # that is the one to keep, but AttributeError occurs
+            self.gameboard.items.remove([0])
             #self.gameboard.items.pop(0)
             #del self.gameboard.items[0]
             self.bag.append("I")
