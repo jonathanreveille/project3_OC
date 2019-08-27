@@ -48,12 +48,17 @@ class Hero:
                 
         elif new_position in self.gameboard.goal:
             self.position = new_position
-
+            
+            #check if hero has 3 items
+            #if self.bag ==3:
+                #raise 
+            
         elif self.position in self.gameboard.goal and len(self.bag) == 3:
             raise GameWon("you made it Morty ! you have just killed theguard!")
 
         elif  self.position ==  self.gameboard.goal and len(self.bag)!= 3:
             raise GameOver("you forgot an item on the map, you just died...try again")
+
 
 
         #    raise GameWon ("you made it Morty ! you have just killed theguard!"
