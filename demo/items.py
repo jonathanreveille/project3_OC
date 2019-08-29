@@ -2,32 +2,42 @@
 # coding : utf-8 
 
 """ 
-This module will represent all different tools that McGaver
-can pick up in the maze.
-The items will have random positions on the self.passages of the labyrinth,
-the items will dispear from the map and appear in the inventory of 
-Mcgaver,
-Mcgavers (hero) should obtain a way to pick up and save up thos items 
-"""
+This module will represent all different items on the map for McGaver"""
 
 class Item:
 
-    """ this class will create objects that will represent the items for the hero
-    on the gameboard to pick-up,
-    those items are going to be positionned randomly on self.gameboard.passages 
-    with the help of the module random (to import) """
+    """ This class will create objects that are items in the game,
+    those items are going to be positionned randomly on the map """
 
     def __init__(self, name):
-        """ construit un objet item de la classes Items """
+        """ constructor for item Class objects"""
         self.name = name
         self.position = None
         self.x = None
         self.y = None
-        
 
     def __repr__(self):
-        #return f"Items(position={self.position})"
-        return f"Items({self.x},{self.y})"
+        """ method that allow us to see what data has an object from Item Class"""
+        return f"Items(position={self.x},{self.y},name= ({self.name})"
+
+    def __eq__(self, obj):
+        """ method to see if two positions are matching with each other"""
+        if not isinstance(obj, Item):
+            self.position = obj
+        else:
+            self.position = obj.position
+        return self.position == self.position
+
+#items_dict = dict(zip(['NEEDLE', 'TUBE', 'ETHER'], [1, 2, 3]))
+#print(items_dict)
+
+N = Item("needle")
+
+E = Item("ether")
+
+T = Item("tube")
+
+
 
 
    # def __eq__(self, obj):
@@ -38,16 +48,3 @@ class Item:
       #  else:
        #     position = obj
        # return self.x == position.x and self.y == position.y
-
-    def __eq__(self, obj):
-        if not isinstance(obj, Item):
-            self.position = obj
-        else:
-            self.position = obj.position
-        return self.position == self.position
-
-N = Item("needle")
-
-E = Item("ether")
-
-T = Item("tube")
