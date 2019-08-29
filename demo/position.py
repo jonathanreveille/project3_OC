@@ -39,3 +39,8 @@ class Position(list):
         else:
            position = obj
         return self.x == position.x and self.y == position.y
+
+    
+    def __hash__(self):
+        """ hash method, return Hash value of position x and y """
+        return hash(f"{self.x},{self.y}")
