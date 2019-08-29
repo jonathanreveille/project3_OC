@@ -2,7 +2,7 @@
 # coding : utf-8 
 
 """ This module was created to allow pop up the message 
-Game won once the hero has reached the exist of the maze """
+Game won once the hero has reached the exit of the maze with 3 items """
 
 class GameWon(Exception):
     pass
