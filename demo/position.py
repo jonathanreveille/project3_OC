@@ -7,7 +7,7 @@ the module mouvement to calculate its itinary """
 from demo.mouvement import Mouvement
 
 
-class Position(list):
+class Position:
     """ This class will define where the hero is on the map with the coordinates (x,y) """
 
     def __init__(self, x, y):
@@ -43,4 +43,4 @@ class Position(list):
     
     def __hash__(self):
         """ hash method, return Hash value of position x and y """
-        return hash(f"{self.x},{self.y}")
+        return hash((self.x, self.y))
