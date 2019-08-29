@@ -27,7 +27,7 @@ class GameBoard():
         self.walls = []
         self.maze = []
 
-        self.items = []
+        self.items = {}
         self.random= None
 
 
@@ -63,10 +63,6 @@ class GameBoard():
                     self.passages.append(pos)
                     self.goal = pos
                 
-                elif colonne == "I":
-                    self.items.append(pos)
-                    self.items = pos
-                
                 elif colonne == "W" : # Si nous avons dans colonne le caractere egale a "W",  ajoute-le dans la liste self.walls
                     self.walls.append(pos)
 
@@ -74,11 +70,19 @@ class GameBoard():
             self.width = n_colonne +1
             self.length = n_lines +1
 
+        #self.random = random.sample(self.passages, k=len(self.passages))
+        #self.random : on tire 3 positions
+
         self.random = random.sample(self.passages, k=len(self.passages))
         
-        #from demo.items import items_list
-        #self.random = random.sample(list(items_list), k=len(self.passages))
-        #self.random = random.sample(list(items_list), k=len(self.passages))
+        #random item positions created here
+        #values =["Neddle","Tube", "Ether"] #name of the items
+        #self.items = dict(zip(self.random, values))  # creating a dictionnary, key (position) and value (name)
+  
+         
+        #self.random = random.sample(self.passages, k =len(self.passages)) # initiale et fonctionne, mais on ne connait pas quel Item est quel item
+        #self.random = dict(zip(random.sample(["NEEDLE", "TUBE", "ETHER"], self.passages, k =len(self.passages)))
+
 
     def __str__(self):
         """ method that returns a string of the maze map """
@@ -96,7 +100,7 @@ class GameBoard():
                 elif pos == self.goal:
                     list_str.append("G")
                 elif pos in self.items:
-                    list_str.append("I")
+                    list_str.append(str(self.items[pos]))
                 elif pos in self.passages:
                     list_str.append(".")
                 elif pos in self.walls:
@@ -112,9 +116,9 @@ class GameBoard():
        
         item.position = self.random.pop()
 
-        self.items.append(item)
+        self.items[item.position] = item #ça nous met l'instance d'item  dans position
 
-
+#trouver comment ajouter un objet dans un dict
 
     def __contains__(self, position):
         """ This methods keeps the HERO on the MAP horizontally and vertically, 
