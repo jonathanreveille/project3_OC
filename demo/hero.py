@@ -28,26 +28,22 @@ class Hero:
 
         new_position = self.position + travel
 
-        if new_position in self.gameboard.items:
-            self.position = new_position
-            self.add_to_bag()
-
-        elif new_position == self.gameboard.goal:
-            if self.level_achieved():
-                self.position = new_position
-            
-        elif new_position in self.gameboard.passages:
+        if new_position in self.gameboard.passages:
             self.position = new_position
 
-        elif new_position in self.gameboard.walls:
-            return self.position
+            if new_position in self.gameboard.items:
+                self.add_to_bag()
+
+            elif new_position == self.gameboard.goal:
+                self.level_achieved()
 
 
     def add_to_bag(self):
         """method that allows you to take the item from gameboard, and put it into our bag"""
         
-        self.gameboard.items.remove([0])
-        self.bag.append("I")
+        item = self.gameboard.items[self.position]
+        del self.gameboard.items[self.position]
+        self.bag.append(item)
         print(self.bag)
         return ("you just found an item")
 
