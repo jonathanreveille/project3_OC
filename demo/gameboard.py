@@ -55,15 +55,15 @@ class GameBoard():
                 if colonne  == ".": # Si nous avons dans colonne le caractere egale a ".", ajoute-le dans la liste self.passages
                     self.passages.append(pos)                    
                 
-                if colonne == "S": # Si nous avons dans colonne le caractere egale a "S",  ajoute-le dans la liste self.passages
+                elif colonne == "S": # Si nous avons dans colonne le caractere egale a "S",  ajoute-le dans la liste self.passages
                     self.passages.append(pos)
                     self.start = pos
                 
-                if colonne == "G": # Si nous avons dans colonne le caractere egale a "G",  ajoute-le dans la liste self.passages
+                elif colonne == "G": # Si nous avons dans colonne le caractere egale a "G",  ajoute-le dans la liste self.passages
                     self.passages.append(pos)
                     self.goal = pos
                 
-                if colonne == "I":
+                elif colonne == "I":
                     self.items.append(pos)
                     self.items = pos
                 
@@ -75,13 +75,15 @@ class GameBoard():
             self.length = n_lines +1
 
         self.random = random.sample(self.passages, k=len(self.passages))
-
+        
+        #from demo.items import items_list
+        #self.random = random.sample(list(items_list), k=len(self.passages))
+        #self.random = random.sample(list(items_list), k=len(self.passages))
 
     def __str__(self):
         """ method that returns a string of the maze map """
 
         list_str = []
-        list_items = []
 
         for line in range(self.length):
             for colonne in range(self.width):
@@ -95,7 +97,6 @@ class GameBoard():
                     list_str.append("G")
                 elif pos in self.items:
                     list_str.append("I")
-                    list_items.append("I")
                 elif pos in self.passages:
                     list_str.append(".")
                 elif pos in self.walls:
