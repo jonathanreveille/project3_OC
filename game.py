@@ -8,11 +8,12 @@ from demo.hero import Hero
 from demo.gamewon import GameWon
 from demo.mouvement import left, right, up, down
 from demo.items import Item, N, E, T
+from demo.gameover import GameOver
 
 def main():
+    
     gameboard = GameBoard()
     gameboard.load_from_file()
-    #item = Item("Needle")
     gameboard.add_items(N)
     gameboard.add_items(E)
     gameboard.add_items(T)
@@ -34,6 +35,8 @@ def main():
 
         except GameWon as e:
             print(e)
+        except GameOver as ko:
+            print(ko)
             break
     
 
