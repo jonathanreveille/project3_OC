@@ -32,10 +32,10 @@ class Hero:
             self.position = new_position
             self.add_to_bag()
 
-        elif new_position in self.gameboard.goal:
-            #self.position = new_position
-            self.level_achieved()
-
+        elif new_position == self.gameboard.goal:
+            if self.level_achieved():
+                self.position = new_position
+            
         elif new_position in self.gameboard.passages:
             self.position = new_position
 
@@ -55,10 +55,14 @@ class Hero:
     def level_achieved(self):
         """check if the hero has 3 items to win the game """
 
-        if len(self.bag) == 3:
-            raise GameWon("you made it McGaver! freedom")
-        elif len(self.bag) != 3:
+        if len(self.bag) != 3:
             raise GameOver("you must have forgotten an item ! try again...")
+        else:
+            raise GameWon("you made it McGaver! freedom")
+            
+
+       # elif self.position == self.gameboard.goal and len(self.bag) != 3:
+    #       raise GameOver("you must have forgotten an item ! try again...")
 
 
     #def win_game(self):
