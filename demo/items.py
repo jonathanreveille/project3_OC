@@ -16,9 +16,13 @@ class Item:
         self.x = None
         self.y = None
 
+
     def __repr__(self):
         """ method that allow us to see what data has an object from Item Class"""
-        return f"Items(position={self.x},{self.y},name= ({self.name})"
+        return f"Items(position={self.position},name= ({self.name})"
+
+    def __str__(self):
+        return self.name[0]
 
     def __eq__(self, obj):
         """ method to see if two positions are matching with each other"""
@@ -28,14 +32,12 @@ class Item:
             self.position = obj.position
         return self.position == self.position
 
-#items_dict = dict(zip(['NEEDLE', 'TUBE', 'ETHER'], [1, 2, 3]))
-#print(items_dict)
 
-N = Item("needle")
+N = Item("Needle")
 
-E = Item("ether")
+E = Item("Ether")
 
-T = Item("tube")
+T = Item("Tube")
 
 
 
