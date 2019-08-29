@@ -11,7 +11,7 @@ from demo.items import Item, N, E, T
 from demo.gameover import GameOver
 
 def main():
-    
+
     gameboard = GameBoard()
     gameboard.load_from_file()
     gameboard.add_items(N)
@@ -21,23 +21,21 @@ def main():
 
     user = ""
 
-    while True:
+    try:
+        
+        while user != "quit":
+            print(gameboard)
+            
+            #Ask user a value in string of the desired direction
+            travel = input("Where do you want hero to go (right/left/up/down/quit)? ")
 
-        try:
-            while user != "quit":
-                print(gameboard)
-                
-                #Ask user a value in string of the desired direction
-                travel = input("Where do you want hero to go (right/left/up/down/quit)? ")
+            if travel in ('left', 'right', 'up', 'down'):
+                hero.move(globals()[travel])
 
-                if travel in ('left', 'right', 'up', 'down'):
-                    hero.move(globals()[travel])
-
-        except GameWon as e:
-            print(e)
-        except GameOver as ko:
-            print(ko)
-            break
+    except GameWon as e:
+        print(e)
+    except GameOver as ko:
+        print(ko)
     
 
 main()
