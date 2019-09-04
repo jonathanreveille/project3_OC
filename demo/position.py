@@ -14,7 +14,7 @@ class Position:
         """ Construtor, x and y position has (x,y) """
         self.x = x
         self.y = y
-
+ 
 
     def __str__(self):
         """ This method returns with a string the position of our hero """
