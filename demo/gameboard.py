@@ -32,7 +32,7 @@ class GameBoard():
 
 
     def load_from_file(self):
-        """ This method will load map from a file """
+        """ loads map from a file, specific characters, understand and remembers each position """
         
         # Donnons à nos attributs une valeurs en integers, car initialement elles ont None en valeur
         # Nous allons charger le labyrinthe en fichier texte se situant dans /levels/..., on créer la varible f pour la méthode
@@ -85,7 +85,7 @@ class GameBoard():
 
 
     def __str__(self):
-        """ method that returns a string of the maze map """
+        """ method that returns a string of the map """
 
         list_str = []
 
