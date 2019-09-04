@@ -24,7 +24,7 @@ def main():
     try:
         
         while user != "quit":
-            print(gameboard)
+            print(gameboard) # affichage
             
             #Ask user a value in string of the desired direction
             travel = input("Where do you want hero to go (right/left/up/down/quit)? ")
