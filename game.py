@@ -10,8 +10,10 @@ from demo.mouvement import left, right, up, down
 from demo.items import Item, N, E, T
 from demo.gameover import GameOver
 
+
 def main():
 
+    
     gameboard = GameBoard()
     gameboard.load_from_file()
     gameboard.add_items(N)
@@ -39,3 +41,6 @@ def main():
     
 
 main()
+
+if __name__ == "__main__":
+    main()
