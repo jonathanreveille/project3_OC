@@ -44,3 +44,10 @@ class Position:
     def __hash__(self):
         """ hash method, return Hash value of position x and y """
         return hash((self.x, self.y))
+
+
+def main():
+    pass
+
+if __name__ == "__main__":
+    main()
