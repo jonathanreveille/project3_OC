@@ -28,3 +28,10 @@ up = Mouvement(dx= 0, dy = -1)
 # if our hero goes DOWN, we will increase y by 1 - this is the object to down
 down = Mouvement(dx= 0, dy = +1)
 
+
+
+def main():
+    pass
+
+if __name__ == "__main__":
+    main()
