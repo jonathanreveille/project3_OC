@@ -57,7 +57,17 @@ class Hero:
             raise GameWon("you made it McGaver! freedom")
             
 
-       # elif self.position == self.gameboard.goal and len(self.bag) != 3:
+def main():
+    pass
+
+if __name__ == "__main__":
+    main()
+
+
+
+
+
+# elif self.position == self.gameboard.goal and len(self.bag) != 3:
     #       raise GameOver("you must have forgotten an item ! try again...")
 
 
