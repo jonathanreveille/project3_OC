@@ -3,17 +3,21 @@
 """ Module for pygame interface"""
 
 import pygame as pg
+import os
 from demo.config import settings
 
 
 class MacGyver(pg.sprite.Sprite): #Classe d'héritage de Sprite
+    """ class to add hero on game, record  his moves  and updates"""
 
     def __init__(self): #Initializer
         super().__init__()  #Appeller la méthode de  sprit  init elle-même 
         self.image = pg.image.load(settings.HERO).convert() #l'image avec le convert
         self.rect = self.image.get_rect() # la position de MacGyver. get_rect = c'est le rectangle de mon image et sa position
 
+
     def updates(self):
+        """ Methods that manages and tracks all updates from events"""
         self._process_keyboard_events()
     
 
@@ -22,7 +26,6 @@ class MacGyver(pg.sprite.Sprite): #Classe d'héritage de Sprite
         
         for event in pg.event.get():
             if event == pg.KEYDOWN and pg.event.key == pg.K_UP:
-                print("up")
                 self.rect.move_ip(0, -settings.VELOCITY)
             
             elif event == pg.KEYDOWN and pg.event.key == pg.K_DOWN:
@@ -34,6 +37,11 @@ class MacGyver(pg.sprite.Sprite): #Classe d'héritage de Sprite
             elif event == pg.KEYDOWN and pg.event.key == pg.K_RIGHT:
                 self.rect.move_ip(settings.VELOCITY, 0)
                 
+
+    def _limits(self):
+        """ class that does not allow our MacGyver to get out of the screen  """
+        pass
+
 
 
 class Game:
@@ -62,6 +70,8 @@ class Game:
         pg.display.set_caption("MacGyver")
 
 
+#ADD A  LOAD_IMAGE FUNCTION HERE
+#INITIALIZES IT IN __init__ 
 
 
     def start(self): # method to launch the game
@@ -94,7 +104,26 @@ class Game:
 
 
 
+def main():
+    game = Game()
+    game.start()
 
+if __name__ == "__main__":
+    main()
+
+
+
+    #def load_image(self, name):
+        #""" method to load image for game """
+        
+        #fullname = os.path.join('demo/image/bg.png')
+        #try:
+        #    image = pg.image.load(fullname)
+        #except FileNotFoundError:
+        #    print("Cannot load the image : ", name)
+        #image = image.convert()
+        #return image
+        
 
 
 
@@ -121,12 +150,7 @@ class Game:
                 #pg.display.update()
 
 
-def main():
-    game = Game()
-    game.start()
 
-if __name__ == "__main__":
-    main()
 
 
 #1- It works, but no need anymore for now in def start from class Game :
