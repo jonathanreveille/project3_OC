@@ -40,6 +40,12 @@ E = Item("Ether")
 T = Item("Tube")
 
 
+def main():
+    pass
+
+if __name__ == "__main__":
+    main()
+
 
 
    # def __eq__(self, obj):
