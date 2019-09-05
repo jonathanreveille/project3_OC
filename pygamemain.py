@@ -1,20 +1,42 @@
 #! /usr/bin/env python3
 # coding : utf-8 
 
-import pygame
+import pygame as pg
+from demo.config import settings
+
+
+class Game:
+    """ Class that represents the game for pygame"""
+
+
+    def __init__(self): # initializer
+        pg.init()
+        self.screen = pg.display.set_mode((settings.WIDTH,settings.HEIGHT))
+        self.background = pg.image.load(settings.BACKGROUND)
+
+
+    def start(self): # method to launch the game
+        pass
+
+
+
 
 
 def main():
-    print("launched game but it does not launch...bloody hell")
- 
- 
-    #Initialize everything
-    pygame.init()
-    screen = pygame.display.set_mode((225,225))
-    pygame.display.set_caption("McGaver")
+    game = Game()
+    game.start()
 
-    
-    pygame.quit()
+ 
+
+
+#def main():
+    #Example from the tutorial
+    #Initialize everything
+    #pg.init()
+    #pg.display.set_mode((height,width))
+    #pg.display.set_caption("McGaver")
+    #pg.quit()
+
 
     #Create background
     #background = pygame.Surface(screen.get_size())  
@@ -28,6 +50,7 @@ def main():
     #Draw everything
     #screen.blit(background,(0, 0))
     #pygame.display.flip()
+
 
 if __name__ == "__main__":
     main()
