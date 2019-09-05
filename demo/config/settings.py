@@ -4,10 +4,13 @@
 
 from pathlib import Path
 
-BASE_DIR = Path(__file__).resolve().parent
+WIDTH = 400
+HEIGHT = 400
 
-WIDTH = 1280
-HEIGHT = 720
 
-BACKGROUND = str(BASE_DIR/"images"/'background.png')
+BASE_DIR = Path(__file__).resolve().parent.parent #Path(__file__) gives us the path to our file. resolve().parent(to go  to config).parent(to  go  to demo and search for 'image' and then name of the file)
+BACKGROUND = str(BASE_DIR/'image'/'floor-tiles-20x20.png')
+HERO = str(BASE_DIR/'image'/'macgyver.png')
 
+
+VELOCITY = 20
