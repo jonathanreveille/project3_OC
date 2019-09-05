@@ -125,3 +125,10 @@ class GameBoard():
         he can't go outside the map's length or width """
         
         return position in self.passages
+
+
+def main():
+    pass
+
+if __name__ == "__main__":
+    main()
