@@ -1,5 +1,4 @@
 demo/__pycache__/
 .vscode/
 env/
-Pipfile/
-Pipfile.lock/
+__pycache__/
