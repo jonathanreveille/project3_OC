@@ -13,7 +13,6 @@ from demo.gameover import GameOver
 
 def main():
 
-    
     gameboard = GameBoard()
     gameboard.load_from_file()
     gameboard.add_items(N)
@@ -39,9 +38,6 @@ def main():
     except GameOver as ko:
         print(ko)
     
-
-#main()
-
 
 if __name__ == "__main__":
     main()
