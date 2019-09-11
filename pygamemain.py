@@ -2,9 +2,10 @@
 # coding : utf-8 
 """ Module for pygame interface"""
 
-import pygame as pg
+
 import os
-from demo.config import settings
+import pygame as pg
+from config import settings
 
 
 class MacGyver(pg.sprite.Sprite): #Classe d'héritage de Sprite
@@ -15,36 +16,31 @@ class MacGyver(pg.sprite.Sprite): #Classe d'héritage de Sprite
         self.image = pg.image.load(settings.HERO).convert() #l'image avec le convert
         self.rect = self.image.get_rect() # la position de MacGyver. get_rect = c'est le rectangle de mon image et sa position
 
-
-    def updates(self):
+    def update(self):
         """ Methods that manages and tracks all updates from events"""
         self._process_keyboard_events()
     
-
     def _process_keyboard_events(self):
         """ method that captures events from user and do action for game"""
         
         for event in pg.event.get():
-            if event == pg.KEYDOWN and pg.event.key == pg.K_UP:
+            if event.type == pg.KEYDOWN and event.key == pg.K_UP:
                 self.rect.move_ip(0, -settings.VELOCITY)
             
-            elif event == pg.KEYDOWN and pg.event.key == pg.K_DOWN:
+            elif event.type == pg.KEYDOWN and event.key == pg.K_DOWN:
                 self.rect.move_ip(0, +settings.VELOCITY)
             
-            elif event == pg.KEYDOWN and pg.event.key == pg.K_LEFT:
+            elif event.type == pg.KEYDOWN and event.key == pg.K_LEFT:
                 self.rect.move_ip(-settings.VELOCITY, 0)
             
-            elif event == pg.KEYDOWN and pg.event.key == pg.K_RIGHT:
+            elif event.type == pg.KEYDOWN and event.key == pg.K_RIGHT:
                 self.rect.move_ip(settings.VELOCITY, 0)
-                
 
-    def _limits(self):
-        """ class that does not allow our MacGyver to get out of the screen  """
-        pass
-
+                # il bougera seulement dans passage
 
 
 class Game:
+
     """ Class that represents the game for pygame"""
 
     def __init__(self): 
@@ -55,20 +51,20 @@ class Game:
         
         self.screen = pg.display.set_mode((settings.WIDTH,settings.HEIGHT)) #Building the window
         self.background = pg.image.load(settings.BACKGROUND).convert() #Building the background
-        self.screen.blit(self.background, (0,0))# Putting the background on the screen surface with blit(). On vient de copier le background sur la surface. Blit veut dire : copier une image sur une surface (self.screen ci-dessus dans notre cas)
         
-    
+        self.screen.blit(self.background, (0,0), self.screen.get_rect())# Putting the background on the screen surface with blit(). On vient de copier le background sur la surface. Blit veut dire : copier une image sur une surface (self.screen ci-dessus dans notre cas)
+        
         self.sprites = pg.sprite.RenderUpdates()
         self.sprites.add(MacGyver())
-
-       # self.screen.blit(self.macgyver, (0,0))  # sur la position de départ
-
 
         pg.display.update() #we always update
         self.running = False  #to know if game runs or not in our while loop, we will use boolean values T or F
 
-        pg.display.set_caption("MacGyver")
+        pg.display.set_caption("MacGyver's Escape")
 
+        #for self.walls in self.gameboard:
+            #faire un blit() sur le background
+            #tout ce qui ne bouge pas, on peut le "bliter" dans background
 
 #ADD A  LOAD_IMAGE FUNCTION HERE
 #INITIALIZES IT IN __init__ 
@@ -76,12 +72,14 @@ class Game:
 
     def start(self): # method to launch the game
         """Method that launches the game"""
-       
+
+        clock = pg.time.Clock()
         self.running = True
        
-
         # loop for game launch
         while self.running:
+
+            clock.tick(40)
             
             self._process_quit_events() #process de fermeture  de l'écran de jeu
 
@@ -91,8 +89,9 @@ class Game:
             #2. Appeler  la update sur toute  les sprites
             self.sprites.update()
             
-            #3. Redessiser  ce qui doit l'être
+            #3. Redessiner  ce qui doit l'être
             updated_sprites = self.sprites.draw(self.screen)
+            
             pg.display.update(updated_sprites)
 
 
