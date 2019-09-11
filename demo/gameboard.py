@@ -3,10 +3,12 @@
 
 """ this module will allow us to determine the length (and width) of the gameboard (map) """
 
+import random
 from random import sample
 from demo.position import Position
 from demo.items import Item
-import random
+from config.settings import START_CHAR, GUARD_CHAR, WALL_CHAR, PASSAGES_CHAR
+
 
 
 class GameBoard():
@@ -51,19 +53,19 @@ class GameBoard():
             for n_colonne, colonne in enumerate(lines): #Pour chaque numéro de colonne(y), et colonne dans ligne
                 
                 pos = Position(n_colonne, n_lines) # on sauve dans 'pos' nos positions x et y selon le caractère rencontré dans notre fichier maze
-                
-                if colonne  == ".": # Si nous avons dans colonne le caractere egale a ".", ajoute-le dans la liste self.passages
+                #if colonne  == ".":
+                if colonne  == PASSAGES_CHAR: # Si nous avons dans colonne le caractere egale a ".", ajoute-le dans la liste self.passages
                     self.passages.append(pos)                    
                 
-                elif colonne == "S": # Si nous avons dans colonne le caractere egale a "S",  ajoute-le dans la liste self.passages
+                elif colonne == START_CHAR: # Si nous avons dans colonne le caractere egale a "S",  ajoute-le dans la liste self.passages
                     self.passages.append(pos)
                     self.start = pos
                 
-                elif colonne == "G": # Si nous avons dans colonne le caractere egale a "G",  ajoute-le dans la liste self.passages
+                elif colonne == GUARD_CHAR: # Si nous avons dans colonne le caractere egale a "G",  ajoute-le dans la liste self.passages
                     self.passages.append(pos)
                     self.goal = pos
                 
-                elif colonne == "W" : # Si nous avons dans colonne le caractere egale a "W",  ajoute-le dans la liste self.walls
+                elif colonne == WALL_CHAR: # Si nous avons dans colonne le caractere egale a "W",  ajoute-le dans la liste self.walls
                     self.walls.append(pos)
 
             # on ajoute à width le nombre de colonne +1, ainsi que pour length on ajoute le nombre de n_lines +1 
@@ -127,8 +129,10 @@ class GameBoard():
         return position in self.passages
 
 
+
 def main():
     pass
+
 
 if __name__ == "__main__":
     main()
