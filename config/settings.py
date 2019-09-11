@@ -20,7 +20,7 @@ HEIGHT = 300
 #Load images for game
 BACKGROUND = os.path.join('image', 'background.png')
 HERO = os.path.join('image', 'macgyver.png')
-
+NEEDLE = os.path.join('image', '')
 
 #Frame per second
 VELOCITY = 20
