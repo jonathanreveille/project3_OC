@@ -3,12 +3,12 @@
 
 """ This module is the main program to run the game """
 
-from demo.gameboard import GameBoard
-from demo.hero import Hero
-from demo.gamewon import GameWon
-from demo.mouvement import left, right, up, down
-from demo.items import Item, N, E, T
-from demo.gameover import GameOver
+from macgyver.demo.gameboard import GameBoard
+from macgyver.demo.hero import Hero
+from macgyver.demo.gamewon import GameWon
+from macgyver.demo.mouvement import left, right, up, down
+from macgyver.demo.items import Item, N, E, T
+from macgyver.demo.gameover import GameOver
 
 
 def main():
