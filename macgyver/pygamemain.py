@@ -5,39 +5,11 @@
 
 import os
 import pygame as pg
-from config.settings import HERO, WIDTH, HEIGHT, BACKGROUND, NEEDLE, TUBE, ETHER, VELOCITY
-
-
-class MacGyver(pg.sprite.Sprite): #Classe d'héritage de Sprite
-    """ class to add hero on game, record  his moves  and updates"""
-
-    def __init__(self): #Initializer
-        super().__init__()  #Appeller la méthode de  sprit  init elle-même 
-        self.image = pg.image.load(HERO).convert() #l'image avec le convert
-        self.rect = self.image.get_rect() # la position de MacGyver. get_rect = c'est le rectangle de mon image et sa position
-
-    def update(self):
-        """ Methods that manages and tracks all updates from events"""
-        self._process_keyboard_events()
-    
-    def _process_keyboard_events(self):
-        """ method that captures events from user and do action for game"""
-        
-        for event in pg.event.get():
-            if event.type == pg.KEYDOWN and event.key == pg.K_UP:
-                self.rect.move_ip(0, -VELOCITY)
-            
-            elif event.type == pg.KEYDOWN and event.key == pg.K_DOWN:
-                self.rect.move_ip(0, +VELOCITY)
-            
-            elif event.type == pg.KEYDOWN and event.key == pg.K_LEFT:
-                self.rect.move_ip(-VELOCITY, 0)
-            
-            elif event.type == pg.KEYDOWN and event.key == pg.K_RIGHT:
-                self.rect.move_ip(VELOCITY, 0)
-
-                # il bougera seulement dans passage
-
+from config.settings import HERO, WIDTH, HEIGHT, BACKGROUND, VELOCITY
+from macgyver.views.needle import Needle
+from macgyver.views.tube import Tube
+from macgyver.views.ether import Ether
+from macgyver.views.macgyver import MacGyver
 
 class Game:
 
@@ -51,17 +23,18 @@ class Game:
         
         #On définit la taille de l'écran
         self.screen = pg.display.set_mode((WIDTH, HEIGHT)) #Building the window
-        
         #On définit l'image sur background
         self.background = pg.image.load(BACKGROUND).convert() #Building the background
-        
         # On colle le background sur la taille du screen
         self.screen.blit(self.background, (0,0), self.screen.get_rect())# Putting the background on the screen surface with blit(). On vient de copier le background sur la surface. Blit veut dire : copier une image sur une surface (self.screen ci-dessus dans notre cas)
         
+
         #On créér une méthode dans un attribut qui ajoute et update les sprites qui bougent
         self.sprites = pg.sprite.RenderUpdates()
         self.sprites.add(MacGyver())
-        #self.sprites.add(Ether, tube, etc.)
+        self.sprites.add(Ether())
+        self.sprites.add(Tube())
+        self.sprites.add(Needle())
 
         pg.display.update() #we always update
 

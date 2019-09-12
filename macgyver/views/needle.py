@@ -4,14 +4,14 @@
 """class that will represent the item named Needle"""
 
 import pygame as pg
-from config.settings import settings, NEEDLE
+from config.settings import NEEDLE
 
 class Needle(pg.sprite.Sprite): #Classe d'héritage de Sprite
     """ class to add item named NEEDLE on gameboard """
 
     def __init__(self): #Initializer
         super().__init__()  #Appeller la méthode de  sprit  init elle-même 
-        self.image = pg.image.load(settings.NEEDLE).convert_alpha() #l'image avec le convert
+        self.image = pg.image.load(NEEDLE).convert_alpha() #l'image avec le convert
         self.rect = self.image.get_rect()
 
         #DON'T FORGET TO ADD THEM INTO THE GAME, ONCE and only, 
