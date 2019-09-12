@@ -5,11 +5,14 @@
 
 import os
 import pygame as pg
-from config.settings import HERO, WIDTH, HEIGHT, BACKGROUND, VELOCITY
+from config.settings import HERO, WIDTH, HEIGHT, BACKGROUND, VELOCITY, GUARD
 from macgyver.views.needle import Needle
 from macgyver.views.tube import Tube
 from macgyver.views.ether import Ether
 from macgyver.views.macgyver import MacGyver
+from macgyver.views.guard import Guard
+
+from macgyver.demo.gameboard import GameBoard
 
 class Game:
 
@@ -19,32 +22,53 @@ class Game:
         """ All elements that are needed for the game"""
 
         # Initializer pygame
-        pg.init() #No screen appears..
+        pg.init() 
         
         #On définit la taille de l'écran
-        self.screen = pg.display.set_mode((WIDTH, HEIGHT)) #Building the window
-        #On définit l'image sur background
-        self.background = pg.image.load(BACKGROUND).convert() #Building the background
-        # On colle le background sur la taille du screen
-        self.screen.blit(self.background, (0,0), self.screen.get_rect())# Putting the background on the screen surface with blit(). On vient de copier le background sur la surface. Blit veut dire : copier une image sur une surface (self.screen ci-dessus dans notre cas)
+        self.screen = pg.display.set_mode((WIDTH, HEIGHT)) #Building the window in pixels
         
-
+        #On définit l'image sur background
+        self.background = pg.image.load(BACKGROUND).convert_alpha() #Building the background
+    
+        #On colle le background sur la taille du screen
+        self.screen.blit(self.background, (0,0), self.screen.get_rect())# Putting the background on the screen surface with blit(). On vient de copier le background sur la surface. Blit veut dire : copier une image sur une surface (self.screen ci-dessus dans notre cas)
+    
+        #SPRITES
         #On créér une méthode dans un attribut qui ajoute et update les sprites qui bougent
         self.sprites = pg.sprite.RenderUpdates()
+
         self.sprites.add(MacGyver())
-        self.sprites.add(Ether())
         self.sprites.add(Tube())
+        self.sprites.add(Ether())
         self.sprites.add(Needle())
+        self.sprites.add(Guard())
+        
+        #self.sprites.add(Wall())
 
-        pg.display.update() #we always update
+        #self.screen.blit(self.tube,(150,90), self.screen.get_rect())
+              
+        #self.ether = Ether() 
+        #self.screen.blit(self.ether,(420,90), self.screen.get_rect())
+        
+        
+        #self.needle = Needle()
+        #self.screen.blit(self.needle,(300,300), self.screen.get_rect())
+        #self.screen.blit(self.needle.image,(self.gameboard.random), self.screen.get_rect())
 
+        
+        #we always update
+        pg.display.update() 
+
+        #the switch ON/OFF
         self.running = False  #to know if game runs or not in our while loop, we will use boolean values T or F
 
+        #Title on screen
         pg.display.set_caption("MacGyver's Mad Escape")
 
         #for self.walls in self.gameboard:
             #faire un blit() sur le background
             #tout ce qui ne bouge pas, on peut le "bliter" dans background
+
 #ADD A  LOAD_IMAGE FUNCTION HERE
 #INITIALIZES IT IN __init__ 
 #18:21 MERCREDI = AJOUTER LES OBJETS dans le package VIEWS

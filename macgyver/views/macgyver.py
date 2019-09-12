@@ -15,10 +15,12 @@ class MacGyver(pg.sprite.Sprite): #Classe d'héritage de Sprite
         self.image = pg.image.load(HERO).convert() #l'image avec le convert
         self.rect = self.image.get_rect() # la position de MacGyver. get_rect = c'est le rectangle de mon image et sa position
 
+
     def update(self):
         """ Methods that manages and tracks all updates from events"""
         self._process_keyboard_events()
     
+
     def _process_keyboard_events(self):
         """ method that captures events from user and do action for game"""
         
@@ -37,3 +39,4 @@ class MacGyver(pg.sprite.Sprite): #Classe d'héritage de Sprite
 
                 # il bougera seulement dans passage
 
+# Ajouter la limite de MacGyver dans l'écran

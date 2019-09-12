@@ -13,33 +13,24 @@ START_CHAR = 'S'
 GUARD_CHAR = 'G'
 WALL_CHAR = 'W'
 PASSAGES_CHAR = '.'
+HERO_CHAR = 'H'
 
 #Screen size
-WIDTH = 300
-HEIGHT = 300
+WIDTH = 450
+HEIGHT = 480
 #chercher une image de mur en 40 pixel ou 50 pixel = donc 750 pixel en tout
 
-#Load images for game
+#Load images for the maze
 BACKGROUND = str(BASE_DIR/'macgyver'/'image'/'background.png')
+WALL = str(BASE_DIR/'macgyver'/'image'/'wall.png')
+PASSAGES = str(BASE_DIR/'macgyver'/'image'/'passages.png')
+
+#image that moves while the game is running, or at start of the game : size 50x50 pixels
 HERO = str(BASE_DIR/'macgyver'/'image'/'hero.png')
 NEEDLE = str(BASE_DIR/'macgyver'/'image'/'needle.png')
 TUBE = str(BASE_DIR/'macgyver'/'image'/'tube.png')
 ETHER = str(BASE_DIR/'macgyver'/'image'/'ether.png')
-
-#os.path.join method 
-#BACKGROUND = os.path.join('image', 'background.png')
-#HERO = os.path.join('image', 'macgyver.png')
-#NEEDLE = os.path.join('image', 'needle.png')
-#TUBE = os.path.join('image','tube.png')
-#ETHER = os.path.join('image','ether.png')
-
+GUARD = str(BASE_DIR/'macgyver'/'image'/'guard.png')
 
 #Frame per second
 VELOCITY = 30
-
-
-#BASE_DIR = Path(__file__).resolve().parent #Path(__file__) gives us the path 
-#to our file. resolve().parent(to go  to config).parent(to  go  
-#to demo and search for 'image' and then name of the file)
-#str(BASE_DIR/'image'/'background.png') 
-#str(BASE_DIR/'image'/'macgyver.png')

@@ -8,11 +8,11 @@ import os
 from random import sample
 from macgyver.demo.position import Position
 from macgyver.demo.items import Item
-from config.settings import MAZE_LVL1, START_CHAR, GUARD_CHAR, WALL_CHAR, PASSAGES_CHAR
+from config.settings import MAZE_LVL1, START_CHAR, GUARD_CHAR, WALL_CHAR, PASSAGES_CHAR, HERO_CHAR
 
 
 
-class GameBoard():
+class GameBoard:
     """ This class represents the gameboard and its
     different parameters (length, width)"""
 
@@ -99,17 +99,17 @@ class GameBoard():
                 pos = Position(colonne, line)
                 # Verifier si c'est la position de McGaver
                 if pos == self.hero.position:
-                    list_str.append("H")
+                    list_str.append(HERO_CHAR)
                 elif pos == self.start:
-                    list_str.append("S")
+                    list_str.append(START_CHAR)
                 elif pos == self.goal:
-                    list_str.append("G")
+                    list_str.append(GUARD_CHAR)
                 elif pos in self.items:
                     list_str.append(str(self.items[pos]))
                 elif pos in self.passages:
-                    list_str.append(".")
+                    list_str.append(PASSAGES_CHAR)
                 elif pos in self.walls:
-                    list_str.append("W")
+                    list_str.append(WALL_CHAR)
                      
             list_str.append("\n") # ajoute un saut de ligne à chaque fin de ligne
 
@@ -123,7 +123,6 @@ class GameBoard():
 
         self.items[item.position] = item #ça nous met l'instance d'item  dans position
 
-#trouver comment ajouter un objet dans un dict
 
     def __contains__(self, position):
         """ This methods keeps the HERO on the MAP horizontally and vertically, 
