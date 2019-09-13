@@ -48,7 +48,7 @@ class Game:
         self.sprites.add(Guard())
         self.sprites.add(Walls())
 
-        self.background.blit(Walls)
+       #self.background.blit(Walls)
 
 
         #we always update
