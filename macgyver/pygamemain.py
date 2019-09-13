@@ -11,6 +11,7 @@ from macgyver.views.tube import Tube
 from macgyver.views.ether import Ether
 from macgyver.views.macgyver import MacGyver
 from macgyver.views.guard import Guard
+from macgyver.views.walls import Walls
 
 from macgyver.demo.gameboard import GameBoard
 
@@ -23,56 +24,60 @@ class Game:
 
         # Initializer pygame
         pg.init() 
-        
+        #Title on screen
+        pg.display.set_caption("MacGyver's Mad Escape")
+
         #On définit la taille de l'écran
-        self.screen = pg.display.set_mode((WIDTH, HEIGHT)) #Building the window in pixels
-        
+        self.screen = pg.display.set_mode((WIDTH, HEIGHT))
         #On définit l'image sur background
-        self.background = pg.image.load(BACKGROUND).convert_alpha() #Building the background
-    
+        self.background = pg.image.load(BACKGROUND).convert_alpha()
         #On colle le background sur la taille du screen
-        self.screen.blit(self.background, (0,0), self.screen.get_rect())# Putting the background on the screen surface with blit(). On vient de copier le background sur la surface. Blit veut dire : copier une image sur une surface (self.screen ci-dessus dans notre cas)
-    
+        self.screen.blit(self.background, (0,0), self.screen.get_rect())
+        #Putting the background on the screen surface with blit(). On vient de copier le background sur la surface. 
+        #Blit veut dire : copier une image sur une surface (self.screen ci-dessus dans notre cas)
+
         #SPRITES
-        #On créér une méthode dans un attribut qui ajoute et update les sprites qui bougent
-        self.sprites = pg.sprite.RenderUpdates()
+        #On créér et on utilise une méthode pygame dans un attribut qui ajoute et update les sprites qui bougent
+        self.sprites = pg.sprite.RenderUpdates() # nous permet de gérer nos diférentes sprites
 
         self.sprites.add(MacGyver())
+
         self.sprites.add(Tube())
         self.sprites.add(Ether())
         self.sprites.add(Needle())
         self.sprites.add(Guard())
-        
-        #self.sprites.add(Wall())
+        self.sprites.add(Walls())
 
-        #self.screen.blit(self.tube,(150,90), self.screen.get_rect())
-              
-        #self.ether = Ether() 
-        #self.screen.blit(self.ether,(420,90), self.screen.get_rect())
-        
-        
-        #self.needle = Needle()
-        #self.screen.blit(self.needle,(300,300), self.screen.get_rect())
-        #self.screen.blit(self.needle.image,(self.gameboard.random), self.screen.get_rect())
+        self.background.blit(Walls)
 
-        
+
         #we always update
         pg.display.update() 
 
         #the switch ON/OFF
         self.running = False  #to know if game runs or not in our while loop, we will use boolean values T or F
+ 
+        # NOW, COmment je peux importer mes positions dans les modules des sprites pour indiquer leur position
+        # Comment je peux faire un grillage sur le background pour faciliter les positions?
+        # Comment apporter la logique de mes modules dans demo vers les views ?
+        # Comment je créer un espace compteur ou inventaire ?
+        # screen.blit takes 1 argument pg.Surface ? comment ça ?
 
-        #Title on screen
-        pg.display.set_caption("MacGyver's Mad Escape")
 
-        #for self.walls in self.gameboard:
-            #faire un blit() sur le background
-            #tout ce qui ne bouge pas, on peut le "bliter" dans background
+       #self.screen.blit(pg.Surface(self.background(Tube), (420,420))
+       #self.screen.blit
 
-#ADD A  LOAD_IMAGE FUNCTION HERE
-#INITIALIZES IT IN __init__ 
-#18:21 MERCREDI = AJOUTER LES OBJETS dans le package VIEWS
+        #self.tube = self.sprites.add(Tube())
+        #self.tube = Tube()
+        #self.ether = Ether()
+        #self.needle = Needle()
 
+        #self.background.blit(self.tube, (150,90), self.background.get_rect())
+
+        #self.background.blit(self.ether,(420,90), self.screen.get_rect())
+        #self.background.blit(self.needle,(300,300),self.screen.get_rect())
+        
+        #self.screen.blit(self.needle.image,(self.gameboard.random), self.screen.get_rect())
 
     def start(self): # method to launch the game
         """Method that launches the game"""
@@ -83,8 +88,9 @@ class Game:
         # loop for game launch
         while self.running:
 
-            clock.tick(30)
+            clock.tick(30) #vitesse tour de la boucle
             
+
             self._process_quit_events() #process de fermeture  de l'écran de jeu
 
             #1. Couvrir l'espace de jeu avec le background

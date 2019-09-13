@@ -38,5 +38,7 @@ class MacGyver(pg.sprite.Sprite): #Classe d'héritage de Sprite
                 self.rect.move_ip(VELOCITY, 0)
 
                 # il bougera seulement dans passage
-
+    def _limits_moves(self):
+        pass #TO DO !
+    
 # Ajouter la limite de MacGyver dans l'écran

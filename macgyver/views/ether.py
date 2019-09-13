@@ -11,3 +11,5 @@ class Ether(pg.sprite.Sprite): #Classe d'héritage de Sprite
         super().__init__()  #Appeller la méthode de  sprit  init elle-même 
         self.image = pg.image.load(ETHER).convert_alpha() #l'image avec le convert
         self.rect = self.image.get_rect()
+
+
