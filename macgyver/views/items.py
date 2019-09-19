@@ -14,25 +14,24 @@ class Items(pg.sprite.Sprite):
         super().__init__()
 
         self.gameboard = GameBoard()
-        self.items = items
+        self.items = self.gameboard.items
         self.image = pg.image.load(image).convert_alpha()
         self.rect = self.image.get_rect()
 
-    def _update_pos(self):
+
+    def update(self):
         """method that checks if the item is still on the gameboard or if the hero the pick it up"""
         
         pos =  Position(self.rect.x, self.rect.y)
-        self.rect = pos
-        
+
         if pos in self.gameboard.items:
             return Position(self.rect.x*SPRITE_WIDTH, self.rect.y* SPRITE_HEIGHT)
         else:
             pass
 
+
 def main():
     pass
-
-
 
 if __name__ == "__main__":
     main()
