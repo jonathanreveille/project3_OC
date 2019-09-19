@@ -9,9 +9,9 @@ from macgyver.views.items import Items
 from macgyver.views.macgyver import MacGyver
 from macgyver.views.walls import Walls
 from macgyver.views.guard import Guard
-from macgyver.demo.gameboard import GameBoard
-from macgyver.demo.hero import Hero
-from macgyver.demo.items import Item, N, E, T
+from macgyver.models.gameboard import GameBoard
+from macgyver.models.hero import Hero
+from macgyver.models.items import Item, N, E, T
 
 class Game:
     """ Class that represents the game for pygame"""
@@ -20,15 +20,14 @@ class Game:
         """ All elements that are needed for the game"""
 
         self.gameboard = GameBoard()
-        self.gameboard.load_from_file()
-        self.hero = Hero(self.gameboard)
-        self.tube = Item("Tube")
-        self.ether = Item("Ether")
-        self.needle  = Item("Needle")
 
-        self.gameboard.add_items(self.tube) #from class in gameboard.py in models
-        self.gameboard.add_items(self.ether) #from class in gameboard.py in models
-        self.gameboard.add_items(self.needle) #from class in gameboard.py in models
+        self.gameboard.load_from_file()
+
+        self.gameboard.add_items(N)
+        self.gameboard.add_items(E)
+        self.gameboard.add_items(T)
+
+        self.hero = Hero(self.gameboard)
 
         # Initializer pygame
         pg.init()
@@ -45,12 +44,12 @@ class Game:
         #3- on colle le background (avec les murs inclus) sur la taille du screen
 
         #Adding images of wall to walls..
-        self.wall = pg.image.load(WALL).convert() 
+        self.wall = pg.image.load(WALL).convert_alpha() 
         for wall in self.gameboard.walls:
             self.background.blit(self.wall, (wall.x*SPRITE_WIDTH, wall.y*SPRITE_HEIGHT))
 
         #Adding images of passage to passages...
-        self.passages = pg.image.load(PASSAGES).convert()
+        self.passages = pg.image.load(PASSAGES).convert_alpha()
         for passages in self.gameboard.passages:
             self.background.blit(self.passages,(passages.x*SPRITE_WIDTH, passages.y*SPRITE_HEIGHT))
 
@@ -58,7 +57,11 @@ class Game:
         self.box = pg.image.load(BOX).convert_alpha()
         for items in self.gameboard.items:
             self.background.blit(self.box,(items.x*SPRITE_WIDTH, items.y*SPRITE_HEIGHT))
-
+        
+        #Condition pour enlever la boîte...autre posssibilité
+        #if self.hero == self.box:
+            #self.background.blit(self.screen, self.background)
+  
         #Putting the background on the screen surface with blit(). On vient de copier le background sur la surface. 
         #Blit veut dire : copier une image sur une surface (self.screen ci-dessus dans notre cas)
         self.screen.blit(self.background, (0,0), self.screen.get_rect())
@@ -69,7 +72,12 @@ class Game:
         self.sprites.add(MacGyver(self.hero))
         self.sprites.add(Guard())
 
-        self.sprites.add(Items(TUBE_PATH, self.tube))
+        self.sprites.add(Items(TUBE_PATH))
+        #self.sprites.add(Items(ETHER_PATH, self.gameboard))
+        #self.sprites.add(Items(NEEDLE_PATH, self.gameboard))
+
+        #Allows  the player to keep on pressing down the key and hero moves
+        pg.key.set_repeat(700, 30)
 
         #we always update
         pg.display.update()

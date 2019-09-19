@@ -5,7 +5,7 @@ we control his directions according to moves"""
 
 import pygame as pg
 from config.settings import HERO, VELOCITY, SPRITE_WIDTH, SPRITE_HEIGHT
-from macgyver.demo.mouvement import right, left, up, down
+from macgyver.models.mouvement import right, left, up, down
 
 class MacGyver(pg.sprite.Sprite): #Classe d'héritage de Sprite
     """ class to add hero on game, record  his moves  and updates"""

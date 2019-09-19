@@ -5,9 +5,8 @@
 """This module represents the sprite that is set on the goal
 position of the maze """
 
-from config.settings import GUARD
-#from demo.gameboard import GameBoard
 import pygame as pg
+from config.settings import GUARD
 
 class Guard(pg.sprite.Sprite):
     """ class to represent guard """
