@@ -80,11 +80,15 @@ class GameBoard:
 
         self.random = random.sample(self.passages, k=len(self.passages))
         
+        #TEST
+        #print(self.passages)
+        #print(self.walls)
+        #print(self.random)
+        
         #random item positions created here
         #values =["Neddle","Tube", "Ether"] #name of the items
         #self.items = dict(zip(self.random, values))  # creating a dictionnary, key (position) and value (name)
   
-         
         #self.random = random.sample(self.passages, k =len(self.passages)) # initiale et fonctionne, mais on ne connait pas quel Item est quel item
         #self.random = dict(zip(random.sample(["NEEDLE", "TUBE", "ETHER"], self.passages, k =len(self.passages)))
 
@@ -123,17 +127,37 @@ class GameBoard:
 
         self.items[item.position] = item #ça nous met l'instance d'item  dans position
 
+        #return self.items # New line
 
+    
     def __contains__(self, position):
         """ This methods keeps the HERO on the MAP horizontally and vertically, 
         he can't go outside the map's length or width """
-        
         return position in self.passages
 
 
 
 def main():
-    pass
+    g = GameBoard()
+
+    g.load_from_file()
+
+    item = Item("Needle")
+    g.add_items(item)
+    item2 = Item("Ether")
+    g.add_items(item2)
+    item3 = Item("Tube")
+    g.add_items(item3)
+
+    #print(g.items)
+
+    print(g.items)
+  
+
+    
+    
+
+
 
 
 if __name__ == "__main__":

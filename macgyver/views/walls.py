@@ -14,6 +14,8 @@ class Walls(pg.sprite.Sprite):
         super().__init__()
         self.image = pg.image.load(WALL).convert()
         self.rect = self.image.get_rect()
+        
+        
         #self.background.blit(self.image(420,420))
 
         #brouillon

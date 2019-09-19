@@ -2,6 +2,8 @@
 #! /usr/bin/env python3
 # coding : utf-8 
 
+"""This module represents the sprite that is set on the goal
+position of the maze """
 
 from config.settings import GUARD
 #from demo.gameboard import GameBoard
@@ -14,11 +16,7 @@ class Guard(pg.sprite.Sprite):
 
         super().__init__()
         self.image = pg.image.load(GUARD).convert_alpha()
-        self.rect = self.image.get_rect()
-        
-        #self.gb = GameBoard()
-        #self.position = self.gb.goal
-
+        self.rect = self.image.get_rect(x=420,y=420)
 
 def main():
     pass

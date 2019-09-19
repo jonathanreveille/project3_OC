@@ -24,12 +24,10 @@ class MacGyver(pg.sprite.Sprite): #Classe d'héritage de Sprite
         self.rect.x = self.hero.position.x * SPRITE_WIDTH
         self.rect.y = self.hero.position.y * SPRITE_HEIGHT
 
-        # sur la base de la position de McG
-    
 
     def _process_keyboard_events(self):
-        """ method that captures events from user and do action for game"""
-        
+        """ method that captures events keys from user and it does action for game"""
+    
         for event in pg.event.get():
             if event.type == pg.KEYDOWN and event.key == pg.K_UP:
                 #self.rect.move_ip(0, -VELOCITY)
@@ -38,6 +36,7 @@ class MacGyver(pg.sprite.Sprite): #Classe d'héritage de Sprite
             elif event.type == pg.KEYDOWN and event.key == pg.K_DOWN:
                 #self.rect.move_ip(0, +VELOCITY)
                 self.hero.move(down)
+                
             elif event.type == pg.KEYDOWN and event.key == pg.K_LEFT:
                 #self.rect.move_ip(-VELOCITY, 0)
                 self.hero.move(left)
@@ -47,9 +46,6 @@ class MacGyver(pg.sprite.Sprite): #Classe d'héritage de Sprite
                 self.hero.move(right)
 
 
-    def _limits_moves(self, position):
-        """method to make the hero stay on the screen"""
+    def _limits_moves(self):
+        """method to keep hero (MacGyver) on the screen limits"""
         return self.hero in self.gameboard.passages
-
-    
-# Ajouter la limite de MacGyver dans l'écran

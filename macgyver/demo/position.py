@@ -16,8 +16,8 @@ class Position:
         self.y = y
  
 
-    def __str__(self):
-        """ This method returns with a string the position of our hero """
+    def __repr__(self):
+        """ This method returns with a string the positions by x and y """
         return f"Position({self.x},{self.y})"
 
 
