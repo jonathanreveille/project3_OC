@@ -2,7 +2,6 @@
 # coding : utf-8 
 """ Module for pygame interface"""
 
-
 import pygame as pg
 
 #from config.settings import settings
@@ -121,15 +120,15 @@ class Game:
                 pg.display.update(updated_sprites) #retour la liste updater de sprites qui ont été modifié par rapprot au tour d'avant
 
         
-        except GameWon:# as e:
-            #print(e)
-            self.background = self.won
-            return self.screen.blit(self.background, (0,0), self.screen.get_rect())
+        except GameWon as e:# as e:
+            print(e)
+            #self.background = self.won
+            #return self.screen.blit(self.background, (0,0), self.screen.get_rect())
 
-        except GameOver:# as e:
-            #print(e)
-            self.background = self.lost
-            return self.screen.blit(self.background, (0,0), self.screen.get_rect())
+        except GameOver as e:# as e:
+            print(e)
+            #self.background = self.lost
+            #return self.screen.blit(self.background, (0,0), self.screen.get_rect())
             
 
     def _process_quit_events(self):
