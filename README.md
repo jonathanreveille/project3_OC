@@ -42,21 +42,13 @@ The file that allows you to play in terminal version is : "app.py"
 Fork the project. Launch your terminal, set yourself into the project root.
 The file that allows you to play in terminal version is : "__main__" which 
 is located in the maze2.2.1./macgyver/views
-* write in your commande line : `python -m macgyver
-
-
-
-
-.
+* write in your commande line : `python -m macgyver`
 
 ### Licence 
-licence
-use of any licence with the images
-jessefreeman
-WTFPL
+Used the licence of jessefreeman, WTFPL
 
-
-Acknowledgement
-Thierry
+### Acknowledgement
+I would like to give special thanks to *Thierry Chappuis* and *Aurélien Massé* 
+for guiding me through this project.
 
 
