@@ -10,8 +10,6 @@ from macgyver.models.position import Position
 from macgyver.models.items import Item
 from config.settings import MAZE_LVL1, START_CHAR, GUARD_CHAR, WALL_CHAR, PASSAGES_CHAR, HERO_CHAR
 
-
-
 class GameBoard:
     """ This class represents the gameboard and its
     different parameters (length, width)"""
@@ -31,6 +29,7 @@ class GameBoard:
         self.maze = []
 
         self.items = {}
+
         self.random= None
 
 
@@ -42,9 +41,7 @@ class GameBoard:
             # on décide de strip notre ligne de texte du fichier f pour créer un index pour chaque caractère présent
             # on demande ensuite au programme de lire notre texte : ligne par ligne et de la transformer en liste.
             # on isole cette méthode dans la variable maze, qui est au final une liste 
-
-        self.width = int()
-        self.length = int()
+            
 #/Users/jonathanreveille/dev/labyrinth/maze2.2.1./macgyver/demo/gameboard.py
         #with open('levels/maze1.txt') as f:
         #with open('/Users/jonathanreveille/dev/labyrinth/maze2.2.1./macgyver/demo/levels/maze1.txt') as f:
@@ -144,10 +141,11 @@ def main():
 
     item = Item("Needle")
     g.add_items(item)
-    item2 = Item("Ether")
-    g.add_items(item2)
-    item3 = Item("Tube")
-    g.add_items(item3)
+    #item2 = Item("Ether")
+    #g.add_items(item2)
+    #item3 = Item("Tube")
+    #g.add_items(item3)
+    print(item.position)
 
     #print(g.items)
 

@@ -7,7 +7,7 @@ from pathlib import Path
 
 #Screen size
 WIDTH = 450
-HEIGHT = 450
+HEIGHT = 480
 SPRITE_WIDTH = 30
 SPRITE_HEIGHT = 30
 #multiplier les images par les dimensions ci-dessus
@@ -30,19 +30,22 @@ MAZE_LVL1= str(BASE_DIR/'macgyver'/'levels'/'maze1.txt')
 #Load images paths
 BACKGROUND = str(BASE_DIR/'macgyver'/'image'/'background.png')
 
-WALL = str(BASE_DIR/'macgyver'/'image'/'wall.png')
+WALL = str(BASE_DIR/'macgyver'/'image'/'bush.png')
 PASSAGES = str(BASE_DIR/'macgyver'/'image'/'passages.png')
 
 HERO = str(BASE_DIR/'macgyver'/'image'/'hero.png')
 
 GUARD = str(BASE_DIR/'macgyver'/'image'/'guard.png')
 
-BOX = str(BASE_DIR/'macgyver'/'image'/'box.png')
 
 NEEDLE_PATH = str(BASE_DIR/'macgyver'/'image'/'needle.png')
 TUBE_PATH = str(BASE_DIR/'macgyver'/'image'/'tube.png')
 ETHER_PATH = str(BASE_DIR/'macgyver'/'image'/'ether.png')
 
+WON = str(BASE_DIR/'macgyver'/'image'/'won.png')
+LOST = str(BASE_DIR/'macgyver'/'image'/'lost.png')
+
+ITEMS = 3
 
 #Frame per second
 VELOCITY = 50

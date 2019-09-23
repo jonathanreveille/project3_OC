@@ -4,42 +4,37 @@
 
 import pygame as pg
 from macgyver.models.gameboard import GameBoard
-
+from macgyver.models.hero import Hero
 from macgyver.models.position import Position
-
-from macgyver.models.items import Item, N, E, T
-
-from config.settings import SPRITE_WIDTH, SPRITE_HEIGHT, TUBE_PATH
-
-class Items(pg.sprite.Sprite):
+from macgyver.models.items import Item
+from config.settings import SPRITE_WIDTH, SPRITE_HEIGHT, TUBE_PATH, NEEDLE_PATH, ETHER_PATH, PASSAGES, ITEMS
 
 
-    def __init__(self, image):
+class ItemSprite(pg.sprite.Sprite):
+
+    
+    def __init__(self, image, item, gameboard):
         super().__init__()
-        pg.init()
 
-        self.gameboard = GameBoard()
+        self.gameboard = gameboard
+        self.item = item
+        #self.gameboard.add_items(self.item)
+        #self.items = self.gameboard.items
         self.image = pg.image.load(image).convert_alpha()
         self.rect = self.image.get_rect()
+        #self.rect.move_ip(self.item.position.x*SPRITE_WIDTH)
+        self.rect.x = self.item.position.x*SPRITE_WIDTH
+        self.rect.y  = self.item.position.y*SPRITE_HEIGHT
 
-        for items in self.gameboard.items:
-            items = Position(self.rect.x, self.rect.y)
-            self.background.blit(self.image,(items.x*SPRITE_WIDTH, items.y*SPRITE_HEIGHT))
 
-        self.position = None
-
+    def update(self):
         
-    def update(self, *item):
-        """method  that will tell our sprite where to appear in the game"""
-
-        pos = Position(self.rect.x, self.rect.y)
-        if pos in self.gameboard.items:
-            self.position = pos
-
-        #if pos in self.gameboard.items[pos]:
-        #self.position = pos
-
-
+        if self.gameboard.hero.position == self.item.position:
+            items = len(self.gameboard.hero.bag)
+            self.rect.x = (items -1) * SPRITE_WIDTH
+            self.rect.y = self.gameboard.length * SPRITE_HEIGHT
+ 
+ 
 def main():
     pass
 

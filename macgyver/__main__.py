@@ -4,14 +4,19 @@
 
 
 import pygame as pg
-from config.settings import HERO, WIDTH, HEIGHT, BACKGROUND, VELOCITY, GUARD, WALL, SPRITE_HEIGHT, SPRITE_WIDTH, ETHER_PATH, TUBE_PATH, NEEDLE_PATH, PASSAGES, BOX
-from macgyver.views.items import Items
+
+#from config.settings import settings
+from config.settings import HERO, WIDTH, HEIGHT, BACKGROUND, VELOCITY, GUARD, WALL, SPRITE_HEIGHT, SPRITE_WIDTH, ETHER_PATH, TUBE_PATH, NEEDLE_PATH, PASSAGES, WON, LOST
 from macgyver.views.macgyver import MacGyver
+from macgyver.views.items import ItemSprite
 from macgyver.views.walls import Walls
 from macgyver.views.guard import Guard
 from macgyver.models.gameboard import GameBoard
 from macgyver.models.hero import Hero
 from macgyver.models.items import Item, N, E, T
+from macgyver.models.gamewon import GameWon #Créer un fichier Exceptions
+from macgyver.models.gameover import GameOver
+
 
 class Game:
     """ Class that represents the game for pygame"""
@@ -43,6 +48,9 @@ class Game:
         #2- on ajoute les murs de gameboard.walls au background
         #3- on colle le background (avec les murs inclus) sur la taille du screen
 
+        self.lost = pg.image.load(LOST).convert_alpha()
+        self.won = pg.image.load(WON).convert_alpha()
+
         #Adding images of wall to walls..
         self.wall = pg.image.load(WALL).convert_alpha() 
         for wall in self.gameboard.walls:
@@ -53,11 +61,9 @@ class Game:
         for passages in self.gameboard.passages:
             self.background.blit(self.passages,(passages.x*SPRITE_WIDTH, passages.y*SPRITE_HEIGHT))
 
-        #Adding images of boxes instead of items for now...
-        self.box = pg.image.load(BOX).convert_alpha()
-        for items in self.gameboard.items:
-            self.background.blit(self.box,(items.x*SPRITE_WIDTH, items.y*SPRITE_HEIGHT))
-        
+        self.won = pg.image.load(WON).convert_alpha() #WORKING HERE NOW 
+
+
         #Condition pour enlever la boîte...autre posssibilité
         #if self.hero == self.box:
             #self.background.blit(self.screen, self.background)
@@ -71,8 +77,10 @@ class Game:
         self.sprites = pg.sprite.RenderUpdates() # nous permet de gérer nos diférentes sprites
         self.sprites.add(MacGyver(self.hero))
         self.sprites.add(Guard())
+        self.sprites.add(ItemSprite(TUBE_PATH, T,self.gameboard))
+        self.sprites.add(ItemSprite(ETHER_PATH, E,self.gameboard))
+        self.sprites.add(ItemSprite(NEEDLE_PATH, N,self.gameboard))
 
-        self.sprites.add(Items(TUBE_PATH))
         #self.sprites.add(Items(ETHER_PATH, self.gameboard))
         #self.sprites.add(Items(NEEDLE_PATH, self.gameboard))
 
@@ -93,30 +101,41 @@ class Game:
         self.running = True
        
         # loop for game launch
-        while self.running:
-
-            clock.tick(40) #Frame per seconds, in order words : the speed of the loop
+        try:
             
-            self._process_quit_events() #process de fermeture  de l'écran de jeu
+            while self.running:
 
-            #1. Couvrir l'espace de jeu avec le background
-            self.sprites.clear(self.screen, self.background) #  on clear notre self.screen, et on pause le bg par dessus
-            
-            #2. Appeler  la update sur toute les sprites
-            self.sprites.update() #appelle chacune des updates de chacune des classes sprites
-            
-            #3. Redessiner  ce qui doit l'être
-            updated_sprites = self.sprites.draw(self.screen) #coller ou bliter les différentes images sur l'écran
-            
-            pg.display.update(updated_sprites) #retour la liste updater de sprites qui ont été modifié par rapprot au tour d'avant
+                clock.tick(40) #Frame per seconds, in order words : the speed of the loop
+                
+                self._process_quit_events() #process de fermeture  de l'écran de jeu
 
+                #1. Couvrir l'espace de jeu avec le background
+                self.sprites.clear(self.screen, self.background) #  on clear notre self.screen, et on pause le bg par dessus
+                
+                #2. Appeler  la update sur toute les sprites
+                self.sprites.update() #appelle chacune des updates de chacune des classes sprites
+                
+                #3. Redessiner  ce qui doit l'être
+                updated_sprites = self.sprites.draw(self.screen) #coller ou bliter les différentes images sur l'écran
+                
+                pg.display.update(updated_sprites) #retour la liste updater de sprites qui ont été modifié par rapprot au tour d'avant
 
+        
+        except GameWon:# as e:
+            #print(e)
+            self.background = self.won
+            return self.screen.blit(self.background, (0,0), self.screen.get_rect())
+
+        except GameOver:# as e:
+            #print(e)
+            self.background = self.lost
+            return self.screen.blit(self.background, (0,0), self.screen.get_rect())
+            
 
     def _process_quit_events(self):
         """ method that quits the game when the user press the exit button on game window"""
         for _ in pg.event.get(pg.QUIT):
             self.running = False
-
 
 
 def main():
@@ -126,7 +145,9 @@ def main():
 if __name__ == "__main__":
     main()
 
-
+            #if len(self.gameboard.hero.bag) == 3:
+               # self.won = pg.image.load(WON).convert_alpha
+           # return self.background.blit(self.won, self.background.get_rect())
 
     #def load_image(self, name):
         #""" method to load image for game """
