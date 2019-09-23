@@ -30,16 +30,16 @@ loose. If you want to suceed : **find the items before reaching the exit**.
 
 ### Prerequisites
 - pygame v.1.9.6
-- python v.3.7
+- python v.3.7.4
 
 ### Launch the game
 #### Terminal version 
-Fork the project. Launch your terminal, set yourself into the project root.
+Clone the project. Launch your terminal, set yourself into the project root.
 The file that allows you to play in terminal version is : "app.py"
 *  Write in your command line : `python -m app`
 
 #### The main file for pygame :
-Fork the project. Launch your terminal, set yourself into the project root.
+Clone the project. Launch your terminal, set yourself into the project root.
 The file that allows you to play in terminal version is : "__main__" which 
 is located in the maze2.2.1./macgyver/views
 * write in your commande line : `python -m macgyver`
