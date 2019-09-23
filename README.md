@@ -1,8 +1,8 @@
 # Parcours Python - OpenClassRooms
 
-## Projet - Aidez Macgyver a s'échapper ! 
+## Projet - Aidez MacGyver a s'échapper ! 
 
-You can check out the project here [link to Github!](https://github.com/jonathanreveille/maze2.2.1.)
+You can check out the project here [by clicking here!](https://github.com/jonathanreveille/maze2.2.1.)
 
 ### Goal of this project
 For this project, we had to create a 2D maze where our hero tries to escape from it.
