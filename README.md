@@ -29,8 +29,8 @@ loose. If you want to suceed : **find the items before reaching the exit**.
 1. First, launch pipenv shell once you have forked the project
 
 ### Prerequisites
-- pygame v.1.
-- python v.3.7..
+- pygame v.1.9.6
+- python v.3.7
 
 ### Launch the game
 #### Terminal version 
@@ -46,6 +46,7 @@ is located in the maze2.2.1./macgyver/views
 
 ### Licence 
 Used the licence of jessefreeman, WTFPL
+Other game art from : https://www.opengameart.org
 
 ### Acknowledgement
 I would like to give special thanks to *Thierry Chappuis* and *Aurélien Massé* 
