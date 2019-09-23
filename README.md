@@ -45,8 +45,8 @@ is located in the maze2.2.1./macgyver/views
 * write in your commande line : `python -m macgyver`
 
 ### Licence 
-Used the licence of jessefreeman, WTFPL
-Other game art from : https://www.opengameart.org
+* Used the licence of jessefreeman, WTFPL
+* Other game art from : https://www.opengameart.org
 
 ### Acknowledgement
 I would like to give special thanks to *Thierry Chappuis* and *Aurélien Massé* 
