@@ -30,7 +30,8 @@ loose. If you want to suceed, I strongly recommande to **find the items before r
 ### Getting started:
 0. Clone this project if you wish to play.
 
-1. First of all, first **install pipenv** ,then launch
+1. First of all, first you need to **install pipenv** ,
+  and then launch
  ** `pipenv run install`
  ** `pipenv shell`
  ** You are now ready to play, just one more step.
