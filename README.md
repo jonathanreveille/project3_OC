@@ -9,12 +9,12 @@ Here is the link to the project [by clicking here!](https://github.com/jonathanr
 For this project, we had to create a 2D maze in where our hero tries to escape.
 So far, we have just established the first level of the game. It works under 
 the **terminal mode** or you can play it in **graphics mode** (pygame library).
-You have the free **option** to select in which mode you wish to play.
+You have the free **option** to **select** in which **mode** you wish to **play**.
 
 ### Description of the project (game) :
-The hero (Macgyver) in the game that is represented as MacGyver, he is controlled by the gamer,
-and he needs to find items among the maze. Those items will allow him to build automatically
-a seringe. This item becomes a weapon to fight against the guard that is standing at the exit.
+The **hero** (Macgyver) in the game that is represented as MacGyver, he is controlled by the gamer,
+and he needs to find **items** among the **maze**. Those items will allow him to build automatically
+a seringe. This item becomes a weapon to fight against the **guard** that is standing at the **exit**.
 If you manage to make the guard fall asleep you will win, without the seringe, you will
 loose. If you want to suceed, I strongly recommande to **find the items before reaching the exit**. 
 
@@ -35,6 +35,8 @@ loose. If you want to suceed, I strongly recommande to **find the items before r
  ** `pipenv shell`
  ** You are now ready to play, just one more step.
 This will install all *requirementes* needed for this project.
+The advantage of pipenv is that it is cross-platform. It is 
+recommended by the official documentation.
 
 ### Launch the game
 #### In terminal mode :
