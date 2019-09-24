@@ -3,12 +3,14 @@
 
 """ this module will allow us to determine the length (and width) of the gameboard (map) """
 
-import random
 import os
+import random
 from random import sample
+
+from config.settings import MAZE_LVL1, START_CHAR, GUARD_CHAR, WALL_CHAR, PASSAGES_CHAR, HERO_CHAR
 from macgyver.models.position import Position
 from macgyver.models.items import Item
-from config.settings import MAZE_LVL1, START_CHAR, GUARD_CHAR, WALL_CHAR, PASSAGES_CHAR, HERO_CHAR
+
 
 class GameBoard:
     """ This class represents the gameboard and its
@@ -18,18 +20,13 @@ class GameBoard:
 
         self.length= None
         self.width = None
-
         self.hero = None
-
         self.start = None
         self.goal = None
-
         self.passages = []
         self.walls = []
         self.maze = []
-
         self.items = {}
-
         self.random= None
 
 
@@ -136,27 +133,7 @@ class GameBoard:
 
 def main():
     g = GameBoard()
-
     g.load_from_file()
-
-    item = Item("Needle")
-    g.add_items(item)
-    #item2 = Item("Ether")
-    #g.add_items(item2)
-    #item3 = Item("Tube")
-    #g.add_items(item3)
-    print(item.position)
-
-    #print(g.items)
-
-    print(g.items)
-  
-
-    
-    
-
-
-
 
 if __name__ == "__main__":
     main()
