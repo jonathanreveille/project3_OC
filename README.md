@@ -1,7 +1,7 @@
 # OpenClassRooms projects
 *This is the third project in part of the Python course at OC*
 
-## :python: Python App Development - Projet 3 - Aidez MacGyver à s'échapper ! (*Help MacGyver to escape*)
+## :snake: Python App Development - Projet 3 - Aidez MacGyver à s'échapper ! (*Help MacGyver to escape*)
 
 Here is the link to the project [by clicking here!](https://github.com/jonathanreveille/maze2.2.1.)
 
