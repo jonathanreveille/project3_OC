@@ -1,4 +1,3 @@
-
 # Configs that can be change in an easy way from here
 # Capital letters because they are import "CONSTANTS" for the game
 
@@ -19,7 +18,6 @@ GUARD_CHAR = 'G'
 WALL_CHAR = 'W'
 PASSAGES_CHAR = '.'
 HERO_CHAR = 'H'
-
 
 #Load method
 BASE_DIR = Path(__file__).resolve().parent.parent
