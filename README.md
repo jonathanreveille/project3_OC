@@ -51,7 +51,7 @@ recommended by the official documentation.
 `python -m macgyver`
 
 ### Licence:
-* Used artwork from jessefreeman, Licence : WTFPL
+* Used artwork from [jessefreeman](https://www.jessefreeman.com), Licence : WTFPL
 * Other game arts from : https://www.opengameart.org, CC0 1.0 Universal (CC0 1.0), Public Domain Dedication
 
 ### Acknowledgement:
