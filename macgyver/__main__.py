@@ -13,8 +13,8 @@ from macgyver.views.guard import Guard
 from macgyver.models.gameboard import GameBoard
 from macgyver.models.hero import Hero
 from macgyver.models.items import Item, N, E, T
-from macgyver.models.gamewon import GameWon #Créer un fichier Exceptions
-from macgyver.models.gameover import GameOver
+from macgyver.exceptions.gamewon import GameWon #Créer un fichier Exceptions
+from macgyver.exceptions.gameover import GameOver
 
 
 class Game:
