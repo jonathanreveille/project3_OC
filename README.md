@@ -8,7 +8,7 @@ Here is the link to the project [by clicking here!](https://github.com/jonathanr
 ### The project
 For this project, we had to create a 2D maze in where our hero tries to escape.
 So far, we have just established the first level of the game. It works under 
-the **terminal** mode or you can play it with **graphics** (pygame library).
+the **terminal mode** or you can play it in **graphics mode** (pygame library).
 You have the free **option** to select in which mode you wish to play.
 
 ### Description of the project (game) :
