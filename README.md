@@ -1,10 +1,8 @@
 # OpenClassRooms projects
 
-## Python App Development - Projet 3 - Aidez MacGyver à s'échapper ! (*Help Macgyver to escape*)
+## Python App Development - Projet 3 - Aidez MacGyver à s'échapper ! (*Help MacGyver to escape*)
 
 You can check out the project here [by clicking here!](https://github.com/jonathanreveille/maze2.2.1.)
-
-Here are some snaps of the game 
 
 ### The project
 For this project, we had to create a 2D maze in where our hero tries to escape.
@@ -19,13 +17,9 @@ a seringe. This item becomes a weapon to fight agaisnt the guard that is standin
 If you manage to make the guard fall asleep you will win, without the seringe, you will
 loose. If you want to suceed : **find the items before reaching the exit**. 
 
-Here is a screen shot of the game : 
-![Game Screenshot](/macgyver/image/screenshot.png)
-
 ### What is in this project ?
 - Use of OOP
 - Use of pipenv (virtual environment with Python 3)
-`pipenv run install` 
 - Respect and follow recommandations from PEP8
 
 ### Prerequisites:
@@ -36,7 +30,10 @@ Here is a screen shot of the game :
 0. Clone this project if you wish to play
 
 1. First of all, first **install pipenv** ,then launch
- `pipenv shell`.
+ ** `pipenv run install`
+ ** `pipenv shell`
+ ** You are now ready to play, just one more step.
+This will install all *requirementes* needed for this project.
 
 ### Launch the game
 #### In terminal mode :
@@ -46,7 +43,7 @@ Set yourself at the root of the project (maze.2.2.1/)
 
 #### With Pygame :
 Set yourself at the same position as in terminal, it will be launched with the file __main__ in /macgyver/views/
-* write in your commande line : 
+* Write in your commande line : 
 `python -m macgyver`
 
 ### Licence:
@@ -57,4 +54,6 @@ Set yourself at the same position as in terminal, it will be launched with the f
 I would like to give special thanks to *Thierry Chappuis* and *Aurélien Massé* 
 for guiding me throughout this project.
 
+Here is a screen shot of the game, enjoy ! 
+![Game Screenshot](/macgyver/image/screenshot.png)
 
