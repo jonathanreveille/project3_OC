@@ -41,12 +41,12 @@ recommended by the official documentation.
 
 ### Launch the game
 #### In terminal mode :
-2. Set yourself at the root of the project (maze.2.2.1/)
+2. a) Set yourself at the root of the project (maze.2.2.1/)
 *  Write in your command line : 
 `python -m app`
 
 #### With Pygame :
-2.  Set yourself at the same position as in terminal, it will be launched with the file __main__ in /macgyver/views/
+2. b)  Set yourself at the same position as in terminal, it will be launched with the file __main__ in /macgyver/views/
 * Write in your commande line : 
 `python -m macgyver`
 
