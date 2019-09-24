@@ -51,8 +51,8 @@ Set yourself at the same position as in terminal, it will be launched with the f
 `python -m macgyver`
 
 ### Licence:
-* Used the licence of jessefreeman, WTFPL
-* Other game arts from : https://www.opengameart.org, CC0 1.0 Universal (CC0 1.0), public domain dedication
+* Used artwork from jessefreeman, Licence : WTFPL
+* Other game arts from : https://www.opengameart.org, CC0 1.0 Universal (CC0 1.0), Public Domain Dedication
 
 ### Acknowledgement:
 I would like to give special thanks to *Thierry Chappuis* and *Aurélien Massé* 
