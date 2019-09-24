@@ -15,32 +15,26 @@ class Position:
         self.x = x
         self.y = y
  
-
     def __repr__(self):
         """ This method returns with a string the positions by x and y """
         return f"Position({self.x},{self.y})"
 
-
     def __add__(self, mouvement):
         """ This methods calculates the x position after the mouvement,  """
-       
         if self.x != self.x + mouvement.dx:
             return Position((self.x + mouvement.dx), self.y)
             
         elif self.y != self.y + mouvement.dy:
             return Position(self.x, (self.y + mouvement.dy))
    
-
     def __eq__(self, obj):
         """ method  to test if 2 positions  are matching"""
-
         if not isinstance(obj, Position):
             position = obj.position
         else:
            position = obj
         return self.x == position.x and self.y == position.y
 
-    
     def __hash__(self):
         """ hash method, return Hash value of position x and y """
         return hash((self.x, self.y))
