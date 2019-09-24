@@ -1,8 +1,9 @@
 # OpenClassRooms projects
+*This is the third project in part of the Python course at OC*
 
 ## Python App Development - Projet 3 - Aidez MacGyver à s'échapper ! (*Help MacGyver to escape*)
 
-You can check out the project here [by clicking here!](https://github.com/jonathanreveille/maze2.2.1.)
+Here is the link to the project [by clicking here!](https://github.com/jonathanreveille/maze2.2.1.)
 
 ### The project
 For this project, we had to create a 2D maze in where our hero tries to escape.
@@ -13,9 +14,9 @@ You have the free **option** to select in which mode you wish to play.
 ### Description of the project (game) :
 The hero (Macgyver) in the game that is represented as MacGyver, he is controlled by the gamer,
 and he needs to find items among the maze. Those items will allow him to build automatically
-a seringe. This item becomes a weapon to fight agaisnt the guard that is standing on the exit.
+a seringe. This item becomes a weapon to fight against the guard that is standing at the exit.
 If you manage to make the guard fall asleep you will win, without the seringe, you will
-loose. If you want to suceed : **find the items before reaching the exit**. 
+loose. If you want to suceed, I strongly recommande to **find the items before reaching the exit**. 
 
 ### What is in this project ?
 - Use of OOP
@@ -27,7 +28,7 @@ loose. If you want to suceed : **find the items before reaching the exit**.
 - python v.3.7.4
 
 ### Getting started:
-0. Clone this project if you wish to play
+0. Clone this project if you wish to play.
 
 1. First of all, first **install pipenv** ,then launch
  ** `pipenv run install`
