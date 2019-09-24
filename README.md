@@ -1,55 +1,60 @@
-# Parcours Python - OpenClassRooms
+# OpenClassRooms projects
 
-## Projet - Aidez MacGyver a s'échapper ! 
+## Python App Development - Projet 3 - Aidez MacGyver à s'échapper ! (*Help Macgyver to escape*)
 
 You can check out the project here [by clicking here!](https://github.com/jonathanreveille/maze2.2.1.)
 
-### The goal of this project
-For this project, we had to create a 2D maze where our hero tries to escape from it.
-So far, we just established the first level. We made sure that all of the game features
-are well functionning.
+Here are some snaps of the game 
 
-This project runs with the **terminal** (version) and as well with the **pygame** library
-for the graphic version.
-You have the option in which mode you want to play this game.
+### The project
+For this project, we had to create a 2D maze in where our hero tries to escape.
+So far, we have just established the first level of the game. It works under 
+the **terminal** mode or you can play it with **graphics** (pygame library).
+You have the free **option** to select in which mode you wish to play.
 
 ### Description of the project (game) :
 The hero (Macgyver) in the game that is represented as MacGyver, he is controlled by the gamer,
-and he needs to find items among the map, and finally gather them in order to build a seringe.
-This seringe will help Macgyver and the gamer to put asleep the guard which is located 
-at the end of the maze. If the guard is asleep, you win, if the guard is not asleep, you will
+and he needs to find items among the maze. Those items will allow him to build automatically
+a seringe. This item becomes a weapon to fight agaisnt the guard that is standing on the exit.
+If you manage to make the guard fall asleep you will win, without the seringe, you will
 loose. If you want to suceed : **find the items before reaching the exit**. 
 
+Here is a screen shot of the game : 
+![Game Screenshot](/macgyver/image/screenshot.png)
+
 ### What is in this project ?
-- the use of OOP
-- the use of pipenv (virtual environment)
-- respect and follow up the recommandations from PEP8
+- Use of OOP
+- Use of pipenv (virtual environment with Python 3)
+`pipenv run install` 
+- Respect and follow recommandations from PEP8
 
-### Getting started
-1. First, launch pipenv shell once you have forked the project
-
-### Prerequisites
+### Prerequisites:
 - pygame v.1.9.6
 - python v.3.7.4
 
+### Getting started:
+0. Clone this project if you wish to play
+
+1. First of all, first **install pipenv** ,then launch
+ `pipenv shell`.
+
 ### Launch the game
-#### Terminal version 
-Clone the project. Launch your terminal, set yourself into the project root.
-The file that allows you to play in terminal version is : "app.py"
-*  Write in your command line : `python -m app`
+#### In terminal mode :
+Set yourself at the root of the project (maze.2.2.1/)
+*  Write in your command line : 
+`python -m app`
 
-#### The main file for pygame :
-Clone the project. Launch your terminal, set yourself into the project root. /
-The file that allows you to play in terminal version is : "__main__" which 
-is located in the maze2.2.1./macgyver/views
-* write in your commande line : `python -m macgyver`
+#### With Pygame :
+Set yourself at the same position as in terminal, it will be launched with the file __main__ in /macgyver/views/
+* write in your commande line : 
+`python -m macgyver`
 
-### Licence 
+### Licence:
 * Used the licence of jessefreeman, WTFPL
-* Other game art from : https://www.opengameart.org
+* Other game arts from : https://www.opengameart.org, CC0 1.0 Universal (CC0 1.0), public domain dedication
 
-### Acknowledgement
+### Acknowledgement:
 I would like to give special thanks to *Thierry Chappuis* and *Aurélien Massé* 
-for guiding me through this project.
+for guiding me throughout this project.
 
 
