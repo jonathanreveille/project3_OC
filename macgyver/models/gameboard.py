@@ -13,8 +13,8 @@ from macgyver.models.items import Item
 
 
 class GameBoard:
-    """ This class represents the gameboard and its
-    different parameters (length, width)"""
+    """ This class represents the gameboard and its different parameters 
+    (length, width)"""
 
     def __init__(self):
 
@@ -31,7 +31,8 @@ class GameBoard:
 
 
     def load_from_file(self):
-        """ loads map from a file, specific characters, understand and remembers each position """
+        """ Loads map from a file, specific characters, understand and 
+        remembers each position """
         
         # Donnons à nos attributs une valeurs en integers, car initialement elles ont None en valeur
         # Nous allons charger le labyrinthe en fichier texte se situant dans /levels/..., on créer la varible f pour la méthode
@@ -88,7 +89,7 @@ class GameBoard:
 
 
     def __str__(self):
-        """ method that returns a string of the map """
+        """ Method that returns a string of the map """
 
         list_str = []
 
@@ -115,7 +116,7 @@ class GameBoard:
 
 
     def add_items(self, item):
-        """ method that adds item on the map """
+        """ Method that adds item on the map """
        
         item.position = self.random.pop()
 
