@@ -27,6 +27,7 @@ MAZE_LVL1= str(BASE_DIR/'macgyver'/'levels'/'maze1.txt')
 
 #Loading background
 BACKGROUND = str(BASE_DIR/'macgyver'/'image'/'background.png')
+INTRO = str(BASE_DIR/'macgyver'/'image'/'intro.png')
 
 #Loading images paths
 WALL = str(BASE_DIR/'macgyver'/'image'/'bush.png')
@@ -44,9 +45,6 @@ ETHER_PATH = str(BASE_DIR/'macgyver'/'image'/'ether.png')
 #Loading pop up image at end of the game
 WON = str(BASE_DIR/'macgyver'/'image'/'won.png')
 LOST = str(BASE_DIR/'macgyver'/'image'/'lost.png')
-
-#Number of items accessible
-ITEMS = 3
 
 #Frame per second
 VELOCITY = 40
