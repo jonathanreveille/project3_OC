@@ -7,7 +7,7 @@ from macgyver.models.gameboard import GameBoard
 from macgyver.models.hero import Hero
 from macgyver.models.position import Position
 from macgyver.models.items import Item
-from config.settings import SPRITE_WIDTH, SPRITE_HEIGHT, TUBE_PATH, NEEDLE_PATH, ETHER_PATH, PASSAGES, ITEMS
+from config.settings import SPRITE_WIDTH, SPRITE_HEIGHT, TUBE_PATH, NEEDLE_PATH, ETHER_PATH, PASSAGES
 
 
 class ItemSprite(pg.sprite.Sprite):
@@ -28,13 +28,14 @@ class ItemSprite(pg.sprite.Sprite):
 
 
     def update(self):
-        
+        """ Method to update if the items is picked up or not"""
+
         if self.gameboard.hero.position == self.item.position:
             items = len(self.gameboard.hero.bag)
             self.rect.x = (items -1) * SPRITE_WIDTH
             self.rect.y = self.gameboard.length * SPRITE_HEIGHT
- 
- 
+
+
 def main():
     pass
 
