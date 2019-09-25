@@ -25,6 +25,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 #Loading maze
 MAZE_LVL1= str(BASE_DIR/'macgyver'/'levels'/'maze1.txt')
 
+#Loading music
+
 #Loading background
 BACKGROUND = str(BASE_DIR/'macgyver'/'image'/'background.png')
 INTRO = str(BASE_DIR/'macgyver'/'image'/'intro.png')
