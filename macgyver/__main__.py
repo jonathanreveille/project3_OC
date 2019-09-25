@@ -5,7 +5,7 @@
 import pygame as pg
 
 #from config.settings import settings
-from config.settings import HERO, WIDTH, HEIGHT, BACKGROUND, VELOCITY, GUARD, WALL, SPRITE_HEIGHT, SPRITE_WIDTH, ETHER_PATH, TUBE_PATH, NEEDLE_PATH, PASSAGES, WON, LOST
+from config.settings import HERO, WIDTH, HEIGHT, BACKGROUND, VELOCITY, GUARD, WALL, SPRITE_HEIGHT, SPRITE_WIDTH, ETHER_PATH, TUBE_PATH, NEEDLE_PATH, PASSAGES, WON, LOST, INTRO
 from macgyver.views.macgyver import MacGyver
 from macgyver.views.items import ItemSprite
 from macgyver.views.walls import Walls
@@ -13,7 +13,7 @@ from macgyver.views.guard import Guard
 from macgyver.models.gameboard import GameBoard
 from macgyver.models.hero import Hero
 from macgyver.models.items import Item, N, E, T
-from macgyver.exceptions.gamewon import GameWon #Créer un fichier Exceptions
+from macgyver.exceptions.gamewon import GameWon
 from macgyver.exceptions.gameover import GameOver
 
 
@@ -84,7 +84,7 @@ class Game:
         #self.sprites.add(Items(NEEDLE_PATH, self.gameboard))
 
         #Allows  the player to keep on pressing down the key and hero moves
-        pg.key.set_repeat(700, 30)
+        pg.key.set_repeat(500, 100)
 
         #we always update
         pg.display.update()
@@ -92,6 +92,30 @@ class Game:
         #the switch ON/OFF
         self.running = False  #to know if game runs or not in our while loop, we will use boolean values T or F
  
+
+    def game_introduction(self):
+
+        intro = True 
+
+        while intro:
+
+            for event in pg.event.get():
+                if event.type == pg.QUIT:
+                    pg.quit()
+                    quit()
+                if event.type == pg.KEYDOWN:
+                    if event.key == pg.K_UP:
+                        intro = False
+                    elif event.key == pg.K_LEFT:
+                        intro = False
+                        pg.quit()
+                        quit()  
+
+            self.intro_image = pg.image.load(INTRO).convert_alpha()
+            self.screen.blit(self.intro_image, self.screen.get_rect())
+            pg.display.update()
+
+
 
     def start(self): # method to launch the game
         """Method that launches the game"""
@@ -120,16 +144,17 @@ class Game:
                 pg.display.update(updated_sprites) #retour la liste updater de sprites qui ont été modifié par rapprot au tour d'avant
 
         
-        except GameWon as e:# as e:
+        except GameWon as e:
             print(e)
-            #self.background = self.won
-            #return self.screen.blit(self.background, (0,0), self.screen.get_rect())
+            self.running = True
+            self.display_message(self.won)
 
-        except GameOver as e:# as e:
+
+        except GameOver as e:
             print(e)
-            #self.background = self.lost
-            #return self.screen.blit(self.background, (0,0), self.screen.get_rect())
-            
+            self.running = True
+            self.display_message(self.lost)
+
 
     def _process_quit_events(self):
         """ method that quits the game when the user press the exit button on game window"""
@@ -137,8 +162,20 @@ class Game:
             self.running = False
 
 
+    def display_message(self, image):
+        """ method to add a screen for GameOver or GameWon"""
+        self.running = True
+        self.background = image
+        self.sprites.clear(self.screen, self.background)
+        self.screen.blit(self.background, self.screen.get_rect())
+        pg.display.update()
+        self.start()
+
+
+
 def main():
     game = Game()
+    game.game_introduction()
     game.start()
 
 if __name__ == "__main__":
