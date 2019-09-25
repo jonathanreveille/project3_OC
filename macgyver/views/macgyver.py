@@ -42,5 +42,6 @@ class MacGyver(pg.sprite.Sprite):
 
 
     def _limits_moves(self):
-        """method to keep hero (MacGyver) on the screen limits"""
+        """ method that keeps the hero (MacGyver) in the maze,
+        he can't go over edges """
         return self.hero in self.gameboard.passages
