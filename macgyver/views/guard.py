@@ -1,15 +1,15 @@
-""" class that represent graphic element of the Guard in the game """
+""" Class that represent graphic element of the Guard in the game """
 #! /usr/bin/env python3
 # coding : utf-8 
 
-"""This module represents the sprite that is set on the goal
+""" This module represents the sprite that is set on the goal
 position of the maze """
 
 import pygame as pg
 from config.settings import GUARD
 
 class Guard(pg.sprite.Sprite):
-    """ class to represent guard """
+    """ Class to represent guard """
     
     def __init__(self):
 
