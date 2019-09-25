@@ -12,7 +12,7 @@ from macgyver.exceptions.gameover import GameOver
 
 
 def main():
-
+    """this is the main to launch the game"""
     gameboard = GameBoard()
     gameboard.load_from_file()
     gameboard.add_items(N)
@@ -24,8 +24,8 @@ def main():
 
     try:
         
-        while user != "quit":
-            print(gameboard) # affichage
+        while user != "quit": #loop
+            print(gameboard) # show us the maze, with (__str__) from gameboard
             
             #Ask user a value in string of the desired direction
             travel = input("Where do you want hero to go (right/left/up/down/quit)? ")
@@ -34,9 +34,10 @@ def main():
                 hero.move(globals()[travel])
 
     except GameWon as e: #if won
-        print(e)
+        print(e) #show message
+
     except GameOver as ko: #if lost
-        print(ko)
+        print(ko) #show message
     
 
 if __name__ == "__main__":

@@ -6,7 +6,6 @@
 class GameWon(Exception):
     """Class that represents an exception, we will use it
     when the gamer wins"""
-
     pass
 
 def main():

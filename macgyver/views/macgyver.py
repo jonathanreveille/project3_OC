@@ -1,18 +1,19 @@
 #! /usr/bin/env python3
 # coding : utf-8 
-"""this class represents the hero in graphics and 
+
+""" This class represents the hero in graphics and 
 we control his directions according to moves"""
 
 import pygame as pg
 from config.settings import HERO, VELOCITY, SPRITE_WIDTH, SPRITE_HEIGHT
 from macgyver.models.mouvement import right, left, up, down
 
+
 class MacGyver(pg.sprite.Sprite):
     """ This class inherits from sprite class. This is the class
     to represent our hero, record his moves and update position """
 
     def __init__(self, hero): #Initializer
-        
         super().__init__()  #calling sprites class to initialize object, use of super().__init__()
         self.image = pg.image.load(HERO).convert_alpha() #loading image
         self.rect = self.image.get_rect() # get_rect = rectangle of the image and its position
@@ -39,7 +40,6 @@ class MacGyver(pg.sprite.Sprite):
             
             elif event.type == pg.KEYDOWN and event.key == pg.K_RIGHT:
                 self.hero.move(right)
-
 
     def _limits_moves(self):
         """ method that keeps the hero (MacGyver) in the maze,

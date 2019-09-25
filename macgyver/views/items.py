@@ -11,7 +11,8 @@ from config.settings import SPRITE_WIDTH, SPRITE_HEIGHT, TUBE_PATH, NEEDLE_PATH,
 
 
 class ItemSprite(pg.sprite.Sprite):
-
+    """ Class that will represents the sprites of our items in 
+    the maze """
     
     def __init__(self, image, item, gameboard):
         super().__init__()

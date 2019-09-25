@@ -5,13 +5,11 @@
 our hero from one case to the other one """
 
 class Mouvement:
-    """ This class will calculate the way of how our hero will move from 1 spot 
+    """ This class will calculate how our hero will move from 1 spot 
     to the next one. We will only change dx for x and dy for y """
 
     def __init__(self, dx, dy):
-        """ dx means : delta mouvement of x and of y on our map, which means the
-        mouvement that the hero will do when we implement a new position from 
-        it's last position, dx and y will be added to x and y position """
+        """Constructor for Mouvement Class""" 
         self.dx = dx
         self.dy = dy
         

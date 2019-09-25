@@ -15,7 +15,7 @@ class Hero:
     then on the gameboard, and where the hero stands on the gameboard """
 
     def __init__(self, gameboard):
-       
+        """ Constructor for Hero Class"""
         self.position = gameboard.start
         self.gameboard = gameboard
         self.gameboard.hero = self

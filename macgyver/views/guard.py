@@ -8,7 +8,7 @@ import pygame as pg
 from config.settings import GUARD
 
 class Guard(pg.sprite.Sprite):
-    """ Class that represents guard """
+    """ Class that represents the guard """
     
     def __init__(self):
         super().__init__()
