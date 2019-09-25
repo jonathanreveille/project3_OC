@@ -120,7 +120,7 @@ class GameBoard:
        
         item.position = self.random.pop()
 
-        self.items[item.position] = item #ça nous met l'instance d'item  dans position
+        self.items[item.position] = item #it gives us the instance of item in Position
 
         return self.items # New line
 
