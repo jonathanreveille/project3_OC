@@ -33,66 +33,51 @@ class GameBoard:
         """ Loads map from a file, specific characters, understand and 
         remembers each position """
         
-            # on décide de strip notre ligne de texte du fichier f pour créer un index pour chaque caractère présent
-            # on demande ensuite au programme de lire notre texte : ligne par ligne et de la transformer en liste.
-            # on isole cette méthode dans la variable maze, qui est au final une liste 
+            # We open the file with the method open()
+            # Create a variable name maze
+            # We decide to strip our lines in the text file 'f' to create an index for each characters
+            # Then, we read the lines : line by line and transform into a list
             
         with open(MAZE_LVL1) as f:
             maze = [line.strip("") for line in f.readlines() if line.strip()]
             maze = list(maze)
         
-        for n_lines,lines in enumerate(maze): #Pour chaque numéro de ligne(x), et les lignes dans maze
-            for n_colonne, colonne in enumerate(lines): #Pour chaque numéro de colonne(y), et colonne dans ligne
+        for n_lines,lines in enumerate(maze): #For each number of lines and lines in the maze
+            for n_colonne, colonne in enumerate(lines): #For each number of colums and colums in the maze
+
+                pos = Position(n_colonne, n_lines)  # We save our positions with pos variable as (x,y) for each characters
                 
-                pos = Position(n_colonne, n_lines) # on sauve dans 'pos' nos positions x et y selon le caractère rencontré dans notre fichier maze
-                #if colonne  == ".":
-                if colonne  == PASSAGES_CHAR: # Si nous avons dans colonne le caractere egale a ".", ajoute-le dans la liste self.passages
+                if colonne  == PASSAGES_CHAR:       #if we have the '.', add the position into self.passages list:
                     self.passages.append(pos)                    
                 
-                elif colonne == START_CHAR: # Si nous avons dans colonne le caractere egale a "S",  ajoute-le dans la liste self.passages
+                elif colonne == START_CHAR:         # if we have the 'S', add the position into self.passages list:
                     self.passages.append(pos)
-                    self.start = pos
+                    self.start = pos                #add position of 'S' to self.start
                 
-                elif colonne == GUARD_CHAR: # Si nous avons dans colonne le caractere egale a "G",  ajoute-le dans la liste self.passages
+                elif colonne == GUARD_CHAR:         # if we have the 'G', add the position into self.passages list:
                     self.passages.append(pos)
-                    self.goal = pos
+                    self.goal = pos                 #add the position of 'G' to self.goal
                 
-                elif colonne == WALL_CHAR: # Si nous avons dans colonne le caractere egale a "W",  ajoute-le dans la liste self.walls
-                    self.walls.append(pos)
+                elif colonne == WALL_CHAR:          #if we have 'W':
+                    self.walls.append(pos)          #add the position of 'W' to self.walls list
 
-            # on ajoute à width le nombre de colonne +1, ainsi que pour length on ajoute le nombre de n_lines +1 
-            self.width = n_colonne +1
-            self.length = n_lines +1
+             
+            self.width = n_colonne +1               # We add to self.width = +1 to n_colums
+            self.length = n_lines +1                # We add to self.length +1 to n_lines
 
-        #self.random = random.sample(self.passages, k=len(self.passages))
-        #self.random : on tire 3 positions
-
-        self.random = random.sample(self.passages, k=len(self.passages))
+        self.random = random.sample(self.passages, k=len(self.passages)) #function to select random position from self.passages
         
-        #TEST
-        #print(self.passages)
-        #print(self.walls)
-        #print(self.random)
-        
-        #random item positions created here
-        #values =["Neddle","Tube", "Ether"] #name of the items
-        #self.items = dict(zip(self.random, values))  # creating a dictionnary, key (position) and value (name)
-  
-        #self.random = random.sample(self.passages, k =len(self.passages)) # initiale et fonctionne, mais on ne connait pas quel Item est quel item
-        #self.random = dict(zip(random.sample(["NEEDLE", "TUBE", "ETHER"], self.passages, k =len(self.passages)))
-
 
     def __str__(self):
         """ Method that returns a string of the map """
 
-        list_str = []
-
+        list_str = [] #empty list
         for line in range(self.length):
             for colonne in range(self.width):
                 pos = Position(colonne, line)
-                # Verifier si c'est la position de McGaver
-                if pos == self.hero.position:
-                    list_str.append(HERO_CHAR)
+                
+                if pos == self.hero.position: # Check if the position is the one of the hero
+                    list_str.append(HERO_CHAR) # Add to this list : the characters 'H'saved with pos in load_from_file():
                 elif pos == self.start:
                     list_str.append(START_CHAR)
                 elif pos == self.goal:
@@ -104,23 +89,21 @@ class GameBoard:
                 elif pos in self.walls:
                     list_str.append(WALL_CHAR)
                      
-            list_str.append("\n") # ajoute un saut de ligne à chaque fin de ligne
+            list_str.append("\n") # Go back at the line at the end of each line
 
-        return "".join(list_str)
+        return "".join(list_str) #reassamble everything
 
 
     def add_items(self, item):
-        """ Method that adds item on the map """
+        """ Method that adds item on the maze passages randomly """
        
-        item.position = self.random.pop()
+        item.position = self.random.pop() #selects a position out of the list and deletes it
         self.items[item.position] = item #it gives us the instance of item in Position
-
-        return self.items # New line
+        return self.items
 
     
     def __contains__(self, position):
-        """ This methods keeps the HERO on the MAP horizontally and vertically, 
-        he can't go outside the map's length or width """
+        """ This methods keeps the HERO in the MAP"""
         return position in self.passages
 
 
