@@ -14,9 +14,9 @@ class ItemSprite(pg.sprite.Sprite):
     """ Class that will represents the sprites of our items in 
     the maze """
     
-    def __init__(self, image, item, gameboard):
+    def __init__(self, image, item, gameboard): #Constructor
+        
         super().__init__()
-
         self.gameboard = gameboard
         self.item = item
         self.image = pg.image.load(image).convert_alpha()

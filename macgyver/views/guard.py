@@ -9,8 +9,9 @@ from config.settings import GUARD
 
 class Guard(pg.sprite.Sprite):
     """ Class that represents the guard """
-    
-    def __init__(self):
+
+    def __init__(self): #Constructor
+        
         super().__init__()
         self.image = pg.image.load(GUARD).convert_alpha()
         self.rect = self.image.get_rect(x=420,y=420)

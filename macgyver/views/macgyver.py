@@ -13,7 +13,8 @@ class MacGyver(pg.sprite.Sprite):
     """ This class inherits from sprite class. This is the class
     to represent our hero, record his moves and update position """
 
-    def __init__(self, hero): #Initializer
+    def __init__(self, hero): #Constructor
+        
         super().__init__()  #calling sprites class to initialize object, use of super().__init__()
         self.image = pg.image.load(HERO).convert_alpha() #loading image
         self.rect = self.image.get_rect() # get_rect = rectangle of the image and its position

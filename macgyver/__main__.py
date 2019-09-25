@@ -19,7 +19,7 @@ from macgyver.exceptions.gameover import GameOver
 class Game:
     """ Class that represents the game for pygame"""
 
-    def __init__(self): 
+    def __init__(self): #Constructor
         """ All elements that are needed for the game to be played """
 
         self.gameboard = GameBoard() #creating a GameBoard()
