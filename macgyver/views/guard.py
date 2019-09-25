@@ -1,4 +1,3 @@
-""" Class that represent graphic element of the Guard in the game """
 #! /usr/bin/env python3
 # coding : utf-8 
 
@@ -9,13 +8,13 @@ import pygame as pg
 from config.settings import GUARD
 
 class Guard(pg.sprite.Sprite):
-    """ Class to represent guard """
+    """ Class that represents guard """
     
     def __init__(self):
-
         super().__init__()
         self.image = pg.image.load(GUARD).convert_alpha()
         self.rect = self.image.get_rect(x=420,y=420)
+
 
 def main():
     pass

@@ -18,17 +18,13 @@ class ItemSprite(pg.sprite.Sprite):
 
         self.gameboard = gameboard
         self.item = item
-        #self.gameboard.add_items(self.item)
-        #self.items = self.gameboard.items
         self.image = pg.image.load(image).convert_alpha()
         self.rect = self.image.get_rect()
-        #self.rect.move_ip(self.item.position.x*SPRITE_WIDTH)
         self.rect.x = self.item.position.x*SPRITE_WIDTH
         self.rect.y  = self.item.position.y*SPRITE_HEIGHT
 
-
     def update(self):
-        """ Method to update if the items is picked up or not"""
+        """ Method that updates IF the items is picked up or not"""
 
         if self.gameboard.hero.position == self.item.position:
             items = len(self.gameboard.hero.bag)
