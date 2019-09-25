@@ -1,14 +1,16 @@
 #! /usr/bin/env python3
 # coding : utf-8 
 
-""" This module was created to allow pop up the message 
-Game won once the hero has reached the exit of the maze with 3 items """
+""" This module was created to allow pop up the message GameOver """
 
 class GameWon(Exception):
+    """Class that represents an exception, we will use it
+    when the gamer wins"""
+
     pass
 
 def main():
-    print("you are in gamewon.py")
+    pass
 
 if __name__ == "__main__":
     main()
