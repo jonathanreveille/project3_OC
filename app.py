@@ -33,9 +33,9 @@ def main():
             if travel in ('left', 'right', 'up', 'down'):
                 hero.move(globals()[travel])
 
-    except GameWon as e:
+    except GameWon as e: #if won
         print(e)
-    except GameOver as ko:
+    except GameOver as ko: #if lost
         print(ko)
     
 
