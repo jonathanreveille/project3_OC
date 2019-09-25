@@ -62,7 +62,6 @@ class Game:
 
         self.won = pg.image.load(WON).convert_alpha() #WORKING HERE NOW 
 
-
         #Condition pour enlever la boîte...autre posssibilité
         #if self.hero == self.box:
             #self.background.blit(self.screen, self.background)
@@ -92,30 +91,6 @@ class Game:
         #the switch ON/OFF
         self.running = False  #to know if game runs or not in our while loop, we will use boolean values T or F
  
-
-    def game_introduction(self):
-
-        intro = True 
-
-        while intro:
-
-            for event in pg.event.get():
-                if event.type == pg.QUIT:
-                    pg.quit()
-                    quit()
-                if event.type == pg.KEYDOWN:
-                    if event.key == pg.K_UP:
-                        intro = False
-                    elif event.key == pg.K_LEFT:
-                        intro = False
-                        pg.quit()
-                        quit()  
-
-            self.intro_image = pg.image.load(INTRO).convert_alpha()
-            self.screen.blit(self.intro_image, self.screen.get_rect())
-            pg.display.update()
-
-
 
     def start(self): # method to launch the game
         """Method that launches the game"""
@@ -172,10 +147,8 @@ class Game:
         self.start()
 
 
-
 def main():
     game = Game()
-    game.game_introduction()
     game.start()
 
 if __name__ == "__main__":
