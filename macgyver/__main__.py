@@ -1,14 +1,13 @@
 #! /usr/bin/env python3
 # coding : utf-8 
+
 """ Module for pygame interface"""
 
 import pygame as pg
 
-#from config.settings import settings
-from config import settings #HERO, WIDTH, HEIGHT, BACKGROUND, VELOCITY, GUARD, WALL, SPRITE_HEIGHT, SPRITE_WIDTH, ETHER_PATH, TUBE_PATH, NEEDLE_PATH, PASSAGES, WON, LOST, INTRO
+from config import settings
 from macgyver.views.macgyver import MacGyver
 from macgyver.views.items import ItemSprite
-from macgyver.views.walls import Walls
 from macgyver.views.guard import Guard
 from macgyver.models.gameboard import GameBoard
 from macgyver.models.hero import Hero
@@ -21,114 +20,101 @@ class Game:
     """ Class that represents the game for pygame"""
 
     def __init__(self): 
-        """ All elements that are needed for the game"""
+        """ All elements that are needed for the game to be played """
 
-        self.gameboard = GameBoard()
-        self.gameboard.load_from_file()
-        self.gameboard.add_items(N)
+        self.gameboard = GameBoard() #creating a GameBoard()
+        self.gameboard.load_from_file() #loading file from models gameboard.py
+        self.gameboard.add_items(N) #adding item from models items.py
         self.gameboard.add_items(E)
         self.gameboard.add_items(T)
-        self.hero = Hero(self.gameboard)
+        self.hero = Hero(self.gameboard) #putting the hero into the GameBoard
 
-        pg.init() # Initializer pygame
+        pg.init() #Initializing pygame
         
-        pg.display.set_caption("MacGyver's Mad Escape") #Title on screen
+        pg.display.set_caption("MacGyver's Mad Escape") #Set the title on screen
 
-        #1. On définit la taille de l'écran
-        self.screen = pg.display.set_mode((settings.WIDTH, settings.HEIGHT))
-        #2. On définit l'image sur background
-        self.background = pg.image.load(settings.BACKGROUND).convert_alpha()
+        self.screen = pg.display.set_mode((settings.WIDTH, settings.HEIGHT)) #1. Set the size of the screen in pixels
+        self.background = pg.image.load(settings.BACKGROUND).convert_alpha() #2. Set an attribute for the background, the image is its value
 
-        self.lost = pg.image.load(settings.LOST).convert_alpha()
-        self.won = pg.image.load(settings.WON).convert_alpha()
+        self.lost = pg.image.load(settings.LOST).convert_alpha() #loading image for loosing game
+        self.won = pg.image.load(settings.WON).convert_alpha() #loading image for winning game
 
-        #1- on charge l'image du wall
-        #2- on ajoute les murs de gameboard.walls au background
-        #3- on colle le background (avec les murs inclus) sur la taille du screen
+        
+        self.wall = pg.image.load(settings.WALL).convert_alpha() #loading image that is wall
+        for wall in self.gameboard.walls: # Add images for each wall
+            self.background.blit(self.wall, (wall.x*settings.SPRITE_WIDTH, wall.y*settings.SPRITE_HEIGHT)) #copie and size of image (x,y)
 
-        #Adding images of wall to walls.
-        self.wall = pg.image.load(settings.WALL).convert_alpha() 
-        for wall in self.gameboard.walls:
-            self.background.blit(self.wall, (wall.x*settings.SPRITE_WIDTH, wall.y*settings.SPRITE_HEIGHT))
-
-        #Adding images of passage to passages...
-        self.passages = pg.image.load(settings.PASSAGES).convert_alpha()
-        for passages in self.gameboard.passages:
+        self.passages = pg.image.load(settings.PASSAGES).convert_alpha() #loading image of passage
+        for passages in self.gameboard.passages:  # Add images for each passage path
             self.background.blit(self.passages,(passages.x* settings.SPRITE_WIDTH, passages.y* settings.SPRITE_HEIGHT))
-  
-        #Putting the background on the screen surface with blit(). On vient de copier le background sur la surface. 
-        #Blit veut dire : copier une image sur une surface (self.screen ci-dessus dans notre cas)
-        self.screen.blit(self.background, (0,0), self.screen.get_rect())
+        
+        self.screen.blit(self.background, (0,0), self.screen.get_rect()) # Copie the background over the screen. It's called to '.blit()'.
 
-        #SPRITES
-        #On créér et on utilise une méthode pygame dans un attribut qui ajoute et update les sprites qui bougent
-        self.sprites = pg.sprite.RenderUpdates() # nous permet de gérer nos diférentes sprites
+        self.sprites = pg.sprite.RenderUpdates() # Sprites - We use a pygame method to manage updates with sprites  
+
+        # We add our sprites into the gameboard
         self.sprites.add(MacGyver(self.hero))
         self.sprites.add(Guard())
         self.sprites.add(ItemSprite(settings.TUBE_PATH, T, self.gameboard))
         self.sprites.add(ItemSprite(settings.ETHER_PATH, E, self.gameboard))
         self.sprites.add(ItemSprite(settings.NEEDLE_PATH, N, self.gameboard))
 
-        #self.sprites.add(Items(ETHER_PATH, self.gameboard))
-        #self.sprites.add(Items(NEEDLE_PATH, self.gameboard))
+        pg.key.set_repeat(500, 100) #Allows the player to keep on pressing down the key and the hero moves
 
-        #Allows  the player to keep on pressing down the key and hero moves
-        pg.key.set_repeat(500, 100)
+        pg.display.update() # Always update
 
-        #we always update
-        pg.display.update()
+        #The switch ON/OFF (T/F boolean) for the gameloop 
+        self.running = False
 
-        #the switch ON/OFF
-        self.running = False  #to know if game runs or not in our while loop, we will use boolean values T or F
- 
 
-    def start(self): # method to launch the game
+    def start(self):
         """Method that launches the game"""
 
         clock = pg.time.Clock()
-        self.running = True
-       
-        # loop for game launch
+        self.running = True #the True or False switch
+        
         try:
             
-            while self.running:
+            while self.running: #loop of the game launch
 
-                clock.tick(40) #Frame per seconds, in order words : the speed of the loop
+                clock.tick(40) #Frame per seconds. In order words, the speed of the loop.
                 
-                self._process_quit_events() #process de fermeture  de l'écran de jeu
+                self._process_quit_events() #process to close the game window
 
-                #1. Couvrir l'espace de jeu avec le background
-                self.sprites.clear(self.screen, self.background) #  on clear notre self.screen, et on pause le bg par dessus
+                #1. Cover the gamespace with the background, we clear our screen 
+                #   and put our background over it
+                self.sprites.clear(self.screen, self.background) 
                 
-                #2. Appeler  la update sur toute les sprites
-                self.sprites.update() #appelle chacune des updates de chacune des classes sprites
+                #2. Call update() methods from for classes that are from sprites
+                self.sprites.update()
                 
-                #3. Redessiner  ce qui doit l'être
-                updated_sprites = self.sprites.draw(self.screen) #coller ou bliter les différentes images sur l'écran
+                #3. Draws over what should be drawn, paste or blits all different images on screen
+                updated_sprites = self.sprites.draw(self.screen)
                 
-                pg.display.update(updated_sprites) #retour la liste updater de sprites qui ont été modifié par rapprot au tour d'avant
+                #4 Returns the list of updated sprites that were modified from last loop lap
+                pg.display.update(updated_sprites)
 
-        
-        except GameWon as e:
+       
+        except GameWon as e: #if gamer wins
             print(e)
             self.running = True
             self.display_message(self.won)
 
-
-        except GameOver as e:
+        
+        except GameOver as e: #if gamer looses
             print(e)
             self.running = True
             self.display_message(self.lost)
 
 
     def _process_quit_events(self):
-        """ method that quits the game when the user press the exit button on game window"""
+        """ method that quits the game when the user press the RED CROSS on window"""
         for _ in pg.event.get(pg.QUIT):
             self.running = False
 
 
     def display_message(self, image):
-        """ method to add a screen for GameOver or GameWon"""
+        """ method that adds a screen for GameOver or GameWon"""
         self.running = True
         self.background = image
         self.screen.blit(self.background, self.screen.get_rect())
