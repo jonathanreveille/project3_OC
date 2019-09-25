@@ -13,8 +13,7 @@ from macgyver.models.items import Item
 
 
 class GameBoard:
-    """ This class represents the gameboard and its different parameters 
-    (length, width)"""
+    """ This class represents the gameboard and all its components"""
 
     def __init__(self):
 
@@ -119,7 +118,6 @@ class GameBoard:
         """ Method that adds item on the map """
        
         item.position = self.random.pop()
-
         self.items[item.position] = item #it gives us the instance of item in Position
 
         return self.items # New line
