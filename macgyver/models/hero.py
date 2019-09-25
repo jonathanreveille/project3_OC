@@ -12,7 +12,7 @@ from macgyver.exceptions.gameover import GameOver
 
 class Hero:
     """ This class will define the position of the hero at start position,
-    then on the gameboard, and where the hero stands on the gameboard"""
+    then on the gameboard, and where the hero stands on the gameboard """
 
     def __init__(self, gameboard):
        
@@ -39,8 +39,8 @@ class Hero:
 
 
     def add_to_bag(self):
-        """Method that allows you to take the item from gameboard, and put it
-        into our bag"""
+        """ Method that allows you to take the item from gameboard, and put it
+        into our bag """
         
         item = self.gameboard.items[self.position]
         del self.gameboard.items[self.position]
@@ -50,7 +50,7 @@ class Hero:
 
 
     def level_achieved(self):
-        """Check if the hero has 3 items to win the game """
+        """ Check if the hero has 3 items to win the game """
 
         if len(self.bag) != 3:
             raise GameOver("you must have forgotten an item ! try again...")
