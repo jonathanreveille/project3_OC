@@ -33,15 +33,10 @@ class GameBoard:
         """ Loads map from a file, specific characters, understand and 
         remembers each position """
         
-        # Donnons à nos attributs une valeurs en integers, car initialement elles ont None en valeur
-        # Nous allons charger le labyrinthe en fichier texte se situant dans /levels/..., on créer la varible f pour la méthode
             # on décide de strip notre ligne de texte du fichier f pour créer un index pour chaque caractère présent
             # on demande ensuite au programme de lire notre texte : ligne par ligne et de la transformer en liste.
             # on isole cette méthode dans la variable maze, qui est au final une liste 
             
-#/Users/jonathanreveille/dev/labyrinth/maze2.2.1./macgyver/demo/gameboard.py
-        #with open('levels/maze1.txt') as f:
-        #with open('/Users/jonathanreveille/dev/labyrinth/maze2.2.1./macgyver/demo/levels/maze1.txt') as f:
         with open(MAZE_LVL1) as f:
             maze = [line.strip("") for line in f.readlines() if line.strip()]
             maze = list(maze)
