@@ -27,17 +27,15 @@ class GameBoard:
         self.maze = []
         self.items = {}
         self.random= None
-
-
-    def load_from_file(self):
-        """ Loads map from a file, specific characters, understand and 
-        remembers each position """
-        
             # We open the file with the method open()
             # Create a variable name maze
             # We decide to strip our lines in the text file 'f' to create an index for each characters
             # Then, we read the lines : line by line and transform into a list
-            
+
+    def load_from_file(self):
+        """ Loads map from a file, specific characters, understand and 
+        remembers each position """
+
         with open(MAZE_LVL1) as f:
             maze = [line.strip("") for line in f.readlines() if line.strip()]
             maze = list(maze)
