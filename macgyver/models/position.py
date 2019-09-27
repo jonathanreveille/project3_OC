@@ -20,7 +20,7 @@ class Position:
         return f"Position({self.x},{self.y})"
 
     def __add__(self, mouvement):
-        """ Method that calculates the x position after the mouvement,  """
+        """ Method that calculates the x or y position after the mouvement,  """
         if self.x != self.x + mouvement.dx:
             return Position((self.x + mouvement.dx), self.y)
             
