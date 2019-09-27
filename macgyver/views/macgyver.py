@@ -14,17 +14,18 @@ class MacGyver(pg.sprite.Sprite):
     to represent our hero, record his moves and update position """
 
     def __init__(self, hero): #Constructor
-        
-        super().__init__()  #calling sprites class to initialize object, use of super().__init__()
+
+        #calling sprites class to initialize object, use of super().__init__()
+        super().__init__()  
         self.image = pg.image.load(HERO).convert_alpha() #loading image
-        self.rect = self.image.get_rect() # get_rect = rectangle of the image and its position
+        self.rect = self.image.get_rect() # rectangle of the image and its position
         self.hero = hero
 
     def update(self):
         """ Method that manages and tracks all updates from events"""
         self._process_keyboard_events()
         self.rect.x = self.hero.position.x * SPRITE_WIDTH
-        self.rect.y = self.hero.position.y * SPRITE_HEIGHT@
+        self.rect.y = self.hero.position.y * SPRITE_HEIGHT
 
     def _process_keyboard_events(self):
         """ Method that captures events keys from gamer and it does action in the game"""
