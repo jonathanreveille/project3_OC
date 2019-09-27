@@ -24,7 +24,7 @@ class MacGyver(pg.sprite.Sprite):
         """ Method that manages and tracks all updates from events"""
         self._process_keyboard_events()
         self.rect.x = self.hero.position.x * SPRITE_WIDTH
-        self.rect.y = self.hero.position.y * SPRITE_HEIGHT
+        self.rect.y = self.hero.position.y * SPRITE_HEIGHT@
 
     def _process_keyboard_events(self):
         """ Method that captures events keys from gamer and it does action in the game"""
@@ -35,7 +35,7 @@ class MacGyver(pg.sprite.Sprite):
             
             elif event.type == pg.KEYDOWN and event.key == pg.K_DOWN:
                 self.hero.move(down)
-                
+
             elif event.type == pg.KEYDOWN and event.key == pg.K_LEFT:
                 self.hero.move(left)
             
