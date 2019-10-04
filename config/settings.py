@@ -49,4 +49,3 @@ LOST = str(BASE_DIR/'macgyver'/'image'/'lost.png')
 
 # Frame per second
 VELOCITY = 40
-
