@@ -22,14 +22,15 @@ class Game:
     def __init__(self):  # Constructor
         """ All elements that are needed for the game to be played """
 
-        self.gameboard = GameBoard()  #creating a GameBoard()
-        self.gameboard.load_from_file()  #loading file 
-        self.gameboard.add_items(N)  #adding item from models items.py
+        self.gameboard = GameBoard()
+        self.gameboard.load_from_file()
+        self.gameboard.add_items(N)
         self.gameboard.add_items(E)
         self.gameboard.add_items(T)
-        self.hero = Hero(self.gameboard)  #putting the hero into the GameBoard
+        self.hero = Hero(self.gameboard)
+        #putting the hero into the GameBoard
 
-        pg.init()  #Initializing pygame
+        pg.init()
 
         #Set the title on screen
         pg.display.set_caption("MacGyver's Mad Escape")

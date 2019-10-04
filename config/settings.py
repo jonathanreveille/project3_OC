@@ -1,7 +1,6 @@
 """ Here is a file to control all the Configs of the game
 Parameters can be easily changed from here """
 
-import os
 from pathlib import Path
 
 # Screen size
@@ -48,5 +47,7 @@ ETHER_PATH = str(BASE_DIR/'macgyver'/'image'/'ether.png')
 WON = str(BASE_DIR/'macgyver'/'image'/'won.png')
 LOST = str(BASE_DIR/'macgyver'/'image'/'lost.png')
 
-# Frame per second
+#Frame per second
 VELOCITY = 40
+
+
