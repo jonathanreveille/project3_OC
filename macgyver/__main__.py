@@ -122,12 +122,14 @@ class Game:
             self.display_message(self.lost)
 
     def _process_quit_events(self):
-        """ method that quits the game when the user press the RED CROSS on window"""
+        """ method that quits the game when the user press
+        the RED CROSS on window"""
         for _ in pg.event.get(pg.QUIT):
             self.running = False
 
     def display_message(self, image):
-        """ method that adds a screen for GameOver or GameWon"""
+        """ method that adds a screen for GameOver 
+        or GameWon"""
         self.running = True
         self.background = image
         self.screen.blit(self.background, self.screen.get_rect())
