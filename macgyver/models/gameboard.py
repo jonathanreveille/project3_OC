@@ -7,13 +7,12 @@
 import random
 from random import sample
 
-from config.settings import settings #MAZE_LVL1, START_CHAR, GUARD_CHAR, WALL_CHAR, PASSAGES_CHAR, HERO_CHAR
+from config import settings
 from macgyver.models.position import Position
-from macgyver.models.items import Item
-
 
 class GameBoard:
     """ This class represents the gameboard and all its components"""
+
 
     def __init__(self):
 
@@ -29,7 +28,8 @@ class GameBoard:
         self.random = None
         # We open the file with the method open()
         # Create a variable name maze
-        # We decide to strip our lines in the text file 'f' to create an index for each characters
+        # We decide to strip our lines in the text file 'f' 
+        # to create an index for each characters
         # Then, we read the lines : line by line and transform into a list
 
     def load_from_file(self):
@@ -45,7 +45,8 @@ class GameBoard:
             # For each number of colums and colums in the maze
             for n_colonne, colonne in enumerate(lines):
 
-                # We save our positions with pos variable as (x,y) for each characters
+                # We save our positions with 
+                # pos variable as (x,y) for each characters
                 pos = Position(n_colonne, n_lines)
 
                 # if we have the '.', add the position into self.passages list:
@@ -62,12 +63,13 @@ class GameBoard:
                     self.passages.append(pos)
                     self.goal = pos  # add the position of 'G' to self.goal
 
-                elif colonne == settings.WALL_CHAR:  # if we have 'W':
-                    # add the position of 'W' to self.walls list
+                elif colonne == settings.WALL_CHAR:  
                     self.walls.append(pos)
-
-            self.width = n_colonne + 1               # We add to self.width = +1 to n_colums
-            self.length = n_lines + 1                # We add to self.length +1 to n_lines
+                    
+            # We add to self.width = +1 to n_colums
+            self.width = n_colonne + 1
+            # We add to self.length +1 to n_lines              
+            self.length = n_lines + 1
 
         # function to select random position from self.passages
         self.random = random.sample(self.passages, k=len(self.passages))
@@ -80,8 +82,8 @@ class GameBoard:
             for colonne in range(self.width):
                 pos = Position(colonne, line)
 
-                if pos == self.hero.position:  # Check if the position is the one of the hero
-                    # Add to this list : the characters 'H'saved with pos in load_from_file():
+                # Check if the position is the one of the hero
+                if pos == self.hero.position:  
                     list_str.append(settings.HERO_CHAR)
                 elif pos == self.start:
                     list_str.append(settings.START_CHAR)
