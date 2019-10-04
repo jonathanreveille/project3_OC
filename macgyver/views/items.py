@@ -3,15 +3,11 @@
 """ Module to load items into the game in graphic mode"""
 
 import pygame as pg
-from macgyver.models.gameboard import GameBoard
-from macgyver.models.hero import Hero
-from macgyver.models.position import Position
-from macgyver.models.items import Item
-from config.settings import SPRITE_WIDTH, SPRITE_HEIGHT, TUBE_PATH, NEEDLE_PATH, ETHER_PATH, PASSAGES
+from config.settings import SPRITE_WIDTH, SPRITE_HEIGHT
 
 
 class ItemSprite(pg.sprite.Sprite):
-    """ Class that will represents the sprites of our items in 
+    """ Class that will represents the sprites of our items in
     the maze """
 
     def __init__(self, image, item, gameboard):  # Constructor

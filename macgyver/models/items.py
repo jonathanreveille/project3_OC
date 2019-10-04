@@ -14,14 +14,16 @@ class Item:
         self.position = None
 
     def __repr__(self):
-        """ Method that allow us to see what data has an object from Item Class """
+        """ Method that allow us to see what data has an object
+        from Item Class """
         return f"Item(position={self.position},name= ({self.name})"
 
     def __str__(self):
         return self.name[0]
 
     def __eq__(self, obj):
-        """ Method to see if two positions are matching with each other """
+        """ Method to see if two positions are matching with
+        each other """
         if not isinstance(obj, Item):
             self.position = obj
         else:

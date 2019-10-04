@@ -2,10 +2,8 @@
 # coding : utf-8
 
 """ This module allows us to know on which position
-our hero is standing. It will help the module
-mouvement to calculate its itinary """
-
-from macgyver.models.mouvement import Mouvement
+our hero is standing. It will help the module mouvement
+to calculate its itinary """
 
 
 class Position:

@@ -5,8 +5,6 @@
  (and width) of the gameboard (map) """
 
 import random
-from random import sample
-
 from config import settings
 from macgyver.models.position import Position
 

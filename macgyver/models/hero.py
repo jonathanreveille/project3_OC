@@ -4,9 +4,6 @@
 """ This module allows us to represent our hero on the map, it will define many
  parameter such as ..."""
 
-from macgyver.models.mouvement import Mouvement
-from macgyver.models.gameboard import GameBoard
-from macgyver.models.items import Item
 from macgyver.exceptions.gamewon import GameWon
 from macgyver.exceptions.gameover import GameOver
 
@@ -23,8 +20,8 @@ class Hero:
         self.bag = []
 
     def move(self, travel):
-        """ Method that allows our hero to move on the map from its position
-         to a new position """
+        """ Method that allows our hero to move on the map from
+        its position to a new position """
 
         new_position = self.position + travel
 
@@ -38,8 +35,8 @@ class Hero:
                 self.level_achieved()
 
     def add_to_bag(self):
-        """ Method that allows you to take the item from gameboard, and put it
-        into our bag """
+        """ Method that allows you to take the item from gameboard,
+        and put it into our bag """
 
         item = self.gameboard.items[self.position]
         del self.gameboard.items[self.position]
