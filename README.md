@@ -16,7 +16,7 @@ The **hero** (Macgyver) in the game that is represented as MacGyver, he is contr
 and he needs to find **items** among the **maze**. Those items will allow him to build automatically
 a seringe. This item becomes a weapon to fight against the **guard** that is standing at the **exit**.
 If you manage to make the guard fall asleep you will win, without the seringe, you will
-loose. If you want to suceed, I strongly recommande to **find the items before reaching the exit**. 
+loose. If you want to suceed, I strongly recommand to **find the items before reaching the exit**. 
 
 ### What is in this project ?
 - Use of OOP
