@@ -33,7 +33,7 @@ class GameBoard:
         # Then, we read the lines : line by line and transform into a list
 
     def load_from_file(self):
-        """ Loads map from a file, specific characters, understand and 
+        """ Loads map from a file, specific characters,understand and
         remembers each position """
 
         with open(settings.MAZE_LVL1) as f:
@@ -63,8 +63,8 @@ class GameBoard:
                     self.passages.append(pos)
                     self.goal = pos  # add the position of 'G' to self.goal
 
-                elif colonne == settings.WALL_CHAR: 
-                    self.walls.append(pos)                    
+                elif colonne == settings.WALL_CHAR:
+                    self.walls.append(pos)
             # We add to self.width = +1 to n_colums
             self.width = n_colonne + 1
             # We add to self.length +1 to n_lines
