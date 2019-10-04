@@ -32,13 +32,13 @@ loose. If you want to suceed, I strongly recommand to **find the items before re
 
 1. First of all, first you need to **install pipenv** ,
   and then launch each other steps
-*`pipenv install` (install all requirements)
-*`pipenv shell` (activate virtual env)
+* `pipenv install` (install all requirements)
+* `pipenv shell` (activate virtual env)
 This will install all *requirements* needed for this project.
 The advantage of pipenv is that it is cross-platform. It is 
 recommended by the official documentation. 
 You are now ready to play.
-*`python -m macgyver` (launch the game pygame)
+* `python -m macgyver` (launch the game pygame)
 
 ### Launch the game
 #### In terminal mode :
