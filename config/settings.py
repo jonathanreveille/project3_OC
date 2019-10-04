@@ -47,7 +47,6 @@ ETHER_PATH = str(BASE_DIR/'macgyver'/'image'/'ether.png')
 WON = str(BASE_DIR/'macgyver'/'image'/'won.png')
 LOST = str(BASE_DIR/'macgyver'/'image'/'lost.png')
 
-#Frame per second
+# Frame per second
 VELOCITY = 40
-
 
