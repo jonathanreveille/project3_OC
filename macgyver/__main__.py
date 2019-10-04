@@ -28,11 +28,11 @@ class Game:
         self.gameboard.add_items(E)
         self.gameboard.add_items(T)
         self.hero = Hero(self.gameboard)
-        #putting the hero into the GameBoard
+        # putting the hero into the GameBoard
 
         pg.init()
 
-        #Set the title on screen
+        # Set the title on screen
         pg.display.set_caption("MacGyver's Mad Escape")
 
         # 1. Set the size of the screen in pixels
@@ -40,15 +40,16 @@ class Game:
         # 2. Set an attribute for the background, the image is its value
         self.background = pg.image.load(settings.BACKGROUND).convert_alpha()
 
-        # loading image for loosing game
+        # Loading image for loosing game
         self.lost = pg.image.load(settings.LOST).convert_alpha()
-        # loading image for winning game
+        # Loading image for winning game
         self.won = pg.image.load(settings.WON).convert_alpha()
 
-        # loading image that is wall
+        # Loading image that is wall
         self.wall = pg.image.load(settings.WALL).convert_alpha()
-        for wall in self.gameboard.walls:  # Add images for each wall
-            # copie and size of image (x,y)
+        for wall in self.gameboard.walls:  
+            # Add images for each wall
+            # copie and size of image
             self.background.blit(
                 self.wall, (wall.x*settings.SPRITE_WIDTH,
                 wall.y*settings.SPRITE_HEIGHT))
@@ -76,7 +77,7 @@ class Game:
         # Allows the player to keep on pressing down the key and the hero moves
         pg.key.set_repeat(500, 100)
 
-        pg.display.update()  # Always update
+        pg.display.update()
 
         # The switch ON/OFF (T/F boolean) for the gameloop
         self.running = False
@@ -85,7 +86,9 @@ class Game:
         """Method that launches the game"""
 
         clock = pg.time.Clock()
-        self.running = True  # the True or False switch
+        
+        # Switch On/Off
+        self.running = True
 
         try:
 
