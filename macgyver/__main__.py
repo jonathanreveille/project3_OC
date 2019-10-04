@@ -47,19 +47,19 @@ class Game:
 
         # Loading image that is wall
         self.wall = pg.image.load(settings.WALL).convert_alpha()
-        for wall in self.gameboard.walls:  
+        for wall in self.gameboard.walls:
             # Add images for each wall
             # copie and size of image
             self.background.blit(
-                self.wall, (wall.x*settings.SPRITE_WIDTH,
-                wall.y*settings.SPRITE_HEIGHT))
+                self.wall, (wall.x * settings.SPRITE_WIDTH,
+                wall.y * settings.SPRITE_HEIGHT))
 
         self.passages = pg.image.load(
-            settings.PASSAGES).convert_alpha() #convert
-        for passages in self.gameboard.passages:  # Add images for each passage path
+            settings.PASSAGES).convert_alpha()
+        for passages in self.gameboard.passages:
             self.background.blit(
                 self.passages, (passages.x * settings.SPRITE_WIDTH,
-                 passages.y * settings.SPRITE_HEIGHT))
+                passages.y * settings.SPRITE_HEIGHT))
 
         # Copie the background over the screen. It's called to '.blit()'.
         self.screen.blit(self.background, (0, 0), self.screen.get_rect())
@@ -86,7 +86,6 @@ class Game:
         """Method that launches the game"""
 
         clock = pg.time.Clock()
-        
         # Switch On/Off
         self.running = True
 
@@ -94,13 +93,13 @@ class Game:
 
             while self.running:  # loop of the game launch
 
-                # Frame per seconds. In order words, the speed of the loop.
+                # Frame per seconds. In order words, the speed of the loop
                 clock.tick(40)
 
                 self._process_quit_events()  # process to close the game window
 
                 # 1. Cover the gamespace with the background, we clear our screen
-                #   and put our background over it
+                # and put our background over it
                 self.sprites.clear(self.screen, self.background)
 
                 # 2. Call update() methods from for classes that are from sprites
