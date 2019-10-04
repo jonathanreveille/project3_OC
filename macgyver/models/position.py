@@ -1,14 +1,16 @@
 #! /usr/bin/env python3
 # coding : utf-8
 
-""" This module allows us to know on which position our hero is standing. It will help
-the module mouvement to calculate its itinary """
+""" This module allows us to know on which position
+our hero is standing. It will help the module
+mouvement to calculate its itinary """
 
 from macgyver.models.mouvement import Mouvement
 
 
 class Position:
-    """ This class will define where the hero is on the map with the coordinates (x,y) """
+    """ This class will define where the hero is on the 
+    map with the coordinates (x,y) """
 
     def __init__(self, x, y):
         """ Construtor, x and y position has (x,y) """
@@ -16,11 +18,13 @@ class Position:
         self.y = y
 
     def __repr__(self):
-        """ Method that returns with a string the positions by x and y """
+        """ Method that returns with a string 
+        the positions by x and y """
         return f"Position({self.x},{self.y})"
 
     def __add__(self, mouvement):
-        """ Method that calculates the x or y position after the mouvement,  """
+        """ Method that calculates the x or y
+        position after the mouvement """
         if self.x != self.x + mouvement.dx:
             return Position((self.x + mouvement.dx), self.y)
 
