@@ -95,21 +95,24 @@ class Game:
 
                 # Frame per seconds. In order words, the speed of the loop
                 clock.tick(40)
-
-                self._process_quit_events()  # process to close the game window
+                # Process to close the game window
+                self._process_quit_events()  
 
                 # 1. Cover the gamespace w/ bg
-                # we clear our screen
-                # and put our background over it
+                # We clear our screen
+                # And put our background over it
                 self.sprites.clear(self.screen, self.background)
 
-                # 2. Call update() methods from for classes that are from sprites
+                # 2. Call update() methods from for classes 
+                # That are from sprites
                 self.sprites.update()
 
-                # 3. Draws over what should be drawn, paste or blits all different images on screen
+                # 3. Draws over what should be drawn, 
+                # Paste (or blits) all different images on screen
                 updated_sprites = self.sprites.draw(self.screen)
 
-                # 4 Returns the list of updated sprites that were modified from last loop lap
+                # 4 Returns the list of updated sprites 
+                # that were modified from last loop lap
                 pg.display.update(updated_sprites)
 
         except GameWon as e:  # if gamer wins
