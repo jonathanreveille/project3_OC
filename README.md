@@ -32,8 +32,8 @@ loose. If you want to suceed, I strongly recommande to **find the items before r
 
 1. First of all, first you need to **install pipenv** ,
   and then launch
-*`pipenv run install`
-*`pipenv shell`
+*`pipenv install`
+*`pipenv run python macgyver`
 You are now ready to play, just one more step.
 This will install all *requirementes* needed for this project.
 The advantage of pipenv is that it is cross-platform. It is 
