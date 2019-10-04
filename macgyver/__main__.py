@@ -98,7 +98,8 @@ class Game:
 
                 self._process_quit_events()  # process to close the game window
 
-                # 1. Cover the gamespace with the background, we clear our screen
+                # 1. Cover the gamespace w/ bg
+                # we clear our screen
                 # and put our background over it
                 self.sprites.clear(self.screen, self.background)
 
