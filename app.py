@@ -6,7 +6,7 @@
 from macgyver.models.gameboard import GameBoard
 from macgyver.models.hero import Hero
 from macgyver.models.mouvement import left, right, up, down
-from macgyver.models.items import Item, N, E, T
+from macgyver.models.items import N, E, T
 from macgyver.exceptions.gamewon import GameWon
 from macgyver.exceptions.gameover import GameOver
 

@@ -11,7 +11,7 @@ from macgyver.views.items import ItemSprite
 from macgyver.views.guard import Guard
 from macgyver.models.gameboard import GameBoard
 from macgyver.models.hero import Hero
-from macgyver.models.items import Item, N, E, T
+from macgyver.models.items import N, E, T
 from macgyver.exceptions.gamewon import GameWon
 from macgyver.exceptions.gameover import GameOver
 
@@ -22,16 +22,16 @@ class Game:
     def __init__(self):  # Constructor
         """ All elements that are needed for the game to be played """
 
-        self.gameboard = GameBoard()  # creating a GameBoard()
-        self.gameboard.load_from_file()  # loading file from models gameboard.py
-        self.gameboard.add_items(N)  # adding item from models items.py
+        self.gameboard = GameBoard()  #creating a GameBoard()
+        self.gameboard.load_from_file()  #loading file 
+        self.gameboard.add_items(N)  #adding item from models items.py
         self.gameboard.add_items(E)
         self.gameboard.add_items(T)
-        self.hero = Hero(self.gameboard)  # putting the hero into the GameBoard
+        self.hero = Hero(self.gameboard)  #putting the hero into the GameBoard
 
-        pg.init()  # Initializing pygame
+        pg.init()  #Initializing pygame
 
-        # Set the title on screen
+        #Set the title on screen
         pg.display.set_caption("MacGyver's Mad Escape")
 
         # 1. Set the size of the screen in pixels
@@ -49,13 +49,15 @@ class Game:
         for wall in self.gameboard.walls:  # Add images for each wall
             # copie and size of image (x,y)
             self.background.blit(
-                self.wall, (wall.x*settings.SPRITE_WIDTH, wall.y*settings.SPRITE_HEIGHT))
+                self.wall, (wall.x*settings.SPRITE_WIDTH,
+                wall.y*settings.SPRITE_HEIGHT))
 
         self.passages = pg.image.load(
-            settings.PASSAGES).convert_alpha()  # loading image of passage
+            settings.PASSAGES).convert_alpha() #convert
         for passages in self.gameboard.passages:  # Add images for each passage path
             self.background.blit(
-                self.passages, (passages.x * settings.SPRITE_WIDTH, passages.y * settings.SPRITE_HEIGHT))
+                self.passages, (passages.x * settings.SPRITE_WIDTH,
+                 passages.y * settings.SPRITE_HEIGHT))
 
         # Copie the background over the screen. It's called to '.blit()'.
         self.screen.blit(self.background, (0, 0), self.screen.get_rect())
