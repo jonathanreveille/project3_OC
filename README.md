@@ -3,7 +3,7 @@
 
 ## :snake: Python App Development - Projet 3 - Aidez MacGyver à s'échapper ! (*Help MacGyver to escape*)
 
-Here is the link to the project [by clicking here!](https://github.com/jonathanreveille/maze2.2.1.)
+Here is the [link](https://github.com/jonathanreveille/maze2.2.1.) to the project
 
 ### The project
 For this project, we had to create a 2D maze in where our hero tries to escape.
