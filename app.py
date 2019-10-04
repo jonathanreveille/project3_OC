@@ -1,5 +1,5 @@
 #! /usr/bin/env python3
-# coding : utf-8 
+# coding : utf-8
 
 """ This module is the main program to run the game """
 
@@ -23,22 +23,23 @@ def main():
     user = ""
 
     try:
-        
-        while user != "quit": #loop
-            print(gameboard) # show us the maze, with (__str__) from gameboard
-            
-            #Ask user a value in string of the desired direction
-            travel = input("Where do you want hero to go (right/left/up/down/quit)? ")
+
+        while user != "quit":  # loop
+            print(gameboard)  # show us the maze, with (__str__) from gameboard
+
+            # Ask user a value in string of the desired direction
+            travel = input(
+                "Where do you want hero to go (right/left/up/down/quit)? ")
 
             if travel in ('left', 'right', 'up', 'down'):
                 hero.move(globals()[travel])
 
-    except GameWon as e: #if won
-        print(e) #show message
+    except GameWon as e:  # if won
+        print(e)  # show message
 
-    except GameOver as ko: #if lost
-        print(ko) #show message
-    
+    except GameOver as ko:  # if lost
+        print(ko)  # show message
+
 
 if __name__ == "__main__":
     main()

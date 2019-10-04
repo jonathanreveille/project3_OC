@@ -4,11 +4,11 @@ Parameters can be easily changed from here """
 import os
 from pathlib import Path
 
-#Screen size
+# Screen size
 WIDTH = 450
 HEIGHT = 480
 
-#Rectangle (or sprite) size
+# Rectangle (or sprite) size
 SPRITE_WIDTH = 30
 SPRITE_HEIGHT = 30
 
@@ -19,34 +19,34 @@ WALL_CHAR = 'W'
 PASSAGES_CHAR = '.'
 HERO_CHAR = 'H'
 
-#Loading method variable BASE_DIR, using __file__ magic method
+# Loading method variable BASE_DIR, using __file__ magic method
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-#Loading maze
-MAZE_LVL1= str(BASE_DIR/'macgyver'/'levels'/'maze1.txt')
+# Loading maze
+MAZE_LVL1 = str(BASE_DIR/'macgyver'/'levels'/'maze1.txt')
 
-#Loading music
+# Loading music
 
-#Loading background
+# Loading background
 BACKGROUND = str(BASE_DIR/'macgyver'/'image'/'background.png')
 INTRO = str(BASE_DIR/'macgyver'/'image'/'intro.png')
 
-#Loading images paths
+# Loading images paths
 WALL = str(BASE_DIR/'macgyver'/'image'/'bush.png')
 PASSAGES = str(BASE_DIR/'macgyver'/'image'/'passages.png')
 
-#Loading characters
+# Loading characters
 HERO = str(BASE_DIR/'macgyver'/'image'/'hero.png')
 GUARD = str(BASE_DIR/'macgyver'/'image'/'guard.png')
 
-#Loading items
+# Loading items
 NEEDLE_PATH = str(BASE_DIR/'macgyver'/'image'/'needle.png')
 TUBE_PATH = str(BASE_DIR/'macgyver'/'image'/'tube.png')
 ETHER_PATH = str(BASE_DIR/'macgyver'/'image'/'ether.png')
 
-#Loading pop up image at end of the game
+# Loading pop up image at end of the game
 WON = str(BASE_DIR/'macgyver'/'image'/'won.png')
 LOST = str(BASE_DIR/'macgyver'/'image'/'lost.png')
 
-#Frame per second
+# Frame per second
 VELOCITY = 40

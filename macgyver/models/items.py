@@ -1,7 +1,8 @@
 #! /usr/bin/env python3
-# coding : utf-8 
+# coding : utf-8
 
 """ This module will represent all different items on the map for McGaver"""
+
 
 class Item:
     """This class will create objects that are items in the game,
@@ -40,6 +41,7 @@ def main():
     print(needle.name, needle.position)
     print(T.name, T.position)
     print(E.name, E.position)
+
 
 if __name__ == "__main__":
     main()

@@ -1,5 +1,5 @@
 #! /usr/bin/env python3
-# coding : utf-8 
+# coding : utf-8
 
 """ This class represents the hero in graphics and 
 we control his directions according to moves"""
@@ -13,12 +13,12 @@ class MacGyver(pg.sprite.Sprite):
     """ This class inherits from sprite class. This is the class
     to represent our hero, record his moves and update position """
 
-    def __init__(self, hero): #Constructor
+    def __init__(self, hero):  # Constructor
 
-        #calling sprites class to initialize object, use of super().__init__()
-        super().__init__()  
-        self.image = pg.image.load(HERO).convert_alpha() #loading image
-        self.rect = self.image.get_rect() # rectangle of the image and its position
+        # calling sprites class to initialize object, use of super().__init__()
+        super().__init__()
+        self.image = pg.image.load(HERO).convert_alpha()  # loading image
+        self.rect = self.image.get_rect()  # rectangle of the image and its position
         self.hero = hero
 
     def update(self):
@@ -29,17 +29,17 @@ class MacGyver(pg.sprite.Sprite):
 
     def _process_keyboard_events(self):
         """ Method that captures events keys from gamer and it does action in the game"""
-    
+
         for event in pg.event.get():
             if event.type == pg.KEYDOWN and event.key == pg.K_UP:
                 self.hero.move(up)
-            
+
             elif event.type == pg.KEYDOWN and event.key == pg.K_DOWN:
                 self.hero.move(down)
 
             elif event.type == pg.KEYDOWN and event.key == pg.K_LEFT:
                 self.hero.move(left)
-            
+
             elif event.type == pg.KEYDOWN and event.key == pg.K_RIGHT:
                 self.hero.move(right)
 

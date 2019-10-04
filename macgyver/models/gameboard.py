@@ -1,5 +1,5 @@
 #! /usr/bin/env python3
-# coding : utf-8 
+# coding : utf-8
 
 """ this module will allow us to determine the length (and width) of the gameboard (map) """
 
@@ -17,7 +17,7 @@ class GameBoard:
 
     def __init__(self):
 
-        self.length= None
+        self.length = None
         self.width = None
         self.hero = None
         self.start = None
@@ -26,11 +26,11 @@ class GameBoard:
         self.walls = []
         self.maze = []
         self.items = {}
-        self.random= None
-            # We open the file with the method open()
-            # Create a variable name maze
-            # We decide to strip our lines in the text file 'f' to create an index for each characters
-            # Then, we read the lines : line by line and transform into a list
+        self.random = None
+        # We open the file with the method open()
+        # Create a variable name maze
+        # We decide to strip our lines in the text file 'f' to create an index for each characters
+        # Then, we read the lines : line by line and transform into a list
 
     def load_from_file(self):
         """ Loads map from a file, specific characters, understand and 
@@ -39,43 +39,50 @@ class GameBoard:
         with open(MAZE_LVL1) as f:
             maze = [line.strip("") for line in f.readlines() if line.strip()]
             maze = list(maze)
-        
-        for n_lines,lines in enumerate(maze): #For each number of lines and lines in the maze
-            for n_colonne, colonne in enumerate(lines): #For each number of colums and colums in the maze
 
-                pos = Position(n_colonne, n_lines)  # We save our positions with pos variable as (x,y) for each characters
-                
-                if colonne  == PASSAGES_CHAR:       #if we have the '.', add the position into self.passages list:
-                    self.passages.append(pos)                    
-                
-                elif colonne == START_CHAR:         # if we have the 'S', add the position into self.passages list:
+        # For each number of lines and lines in the maze
+        for n_lines, lines in enumerate(maze):
+            # For each number of colums and colums in the maze
+            for n_colonne, colonne in enumerate(lines):
+
+                # We save our positions with pos variable as (x,y) for each characters
+                pos = Position(n_colonne, n_lines)
+
+                # if we have the '.', add the position into self.passages list:
+                if colonne == PASSAGES_CHAR:
                     self.passages.append(pos)
-                    self.start = pos                #add position of 'S' to self.start
-                
-                elif colonne == GUARD_CHAR:         # if we have the 'G', add the position into self.passages list:
+
+                # if we have the 'S', add the position into self.passages list:
+                elif colonne == START_CHAR:
                     self.passages.append(pos)
-                    self.goal = pos                 #add the position of 'G' to self.goal
-                
-                elif colonne == WALL_CHAR:          #if we have 'W':
-                    self.walls.append(pos)          #add the position of 'W' to self.walls list
+                    self.start = pos  # add position of 'S' to self.start
 
-             
-            self.width = n_colonne +1               # We add to self.width = +1 to n_colums
-            self.length = n_lines +1                # We add to self.length +1 to n_lines
+                # if we have the 'G', add the position into self.passages list:
+                elif colonne == GUARD_CHAR:
+                    self.passages.append(pos)
+                    self.goal = pos  # add the position of 'G' to self.goal
 
-        self.random = random.sample(self.passages, k=len(self.passages)) #function to select random position from self.passages
-        
+                elif colonne == WALL_CHAR:  # if we have 'W':
+                    # add the position of 'W' to self.walls list
+                    self.walls.append(pos)
+
+            self.width = n_colonne + 1               # We add to self.width = +1 to n_colums
+            self.length = n_lines + 1                # We add to self.length +1 to n_lines
+
+        # function to select random position from self.passages
+        self.random = random.sample(self.passages, k=len(self.passages))
 
     def __str__(self):
         """ Method that returns a string of the map """
 
-        list_str = [] #empty list
+        list_str = []  # empty list
         for line in range(self.length):
             for colonne in range(self.width):
                 pos = Position(colonne, line)
-                
-                if pos == self.hero.position: # Check if the position is the one of the hero
-                    list_str.append(HERO_CHAR) # Add to this list : the characters 'H'saved with pos in load_from_file():
+
+                if pos == self.hero.position:  # Check if the position is the one of the hero
+                    # Add to this list : the characters 'H'saved with pos in load_from_file():
+                    list_str.append(HERO_CHAR)
                 elif pos == self.start:
                     list_str.append(START_CHAR)
                 elif pos == self.goal:
@@ -86,29 +93,30 @@ class GameBoard:
                     list_str.append(PASSAGES_CHAR)
                 elif pos in self.walls:
                     list_str.append(WALL_CHAR)
-                     
-            list_str.append("\n") # Go back at the line at the end of each line
 
-        return "".join(list_str) #reassamble everything
+            # Go back at the line at the end of each line
+            list_str.append("\n")
 
+        return "".join(list_str)  # reassamble everything
 
     def add_items(self, item):
         """ Method that adds item on the maze passages randomly """
-       
-        item.position = self.random.pop() #selects a position out of the list and deletes it
-        self.items[item.position] = item #it gives us the instance of item in Position
+
+        # selects a position out of the list and deletes it
+        item.position = self.random.pop()
+        # it gives us the instance of item in Position
+        self.items[item.position] = item
         return self.items
 
-    
     def __contains__(self, position):
         """ This methods keeps the HERO in the MAP"""
         return position in self.passages
 
 
-
 def main():
     g = GameBoard()
     g.load_from_file()
+
 
 if __name__ == "__main__":
     main()
