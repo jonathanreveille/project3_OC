@@ -96,22 +96,22 @@ class Game:
                 # Frame per seconds. In order words, the speed of the loop
                 clock.tick(40)
                 # Process to close the game window
-                self._process_quit_events()  
+                self._process_quit_events() 
 
                 # 1. Cover the gamespace w/ bg
                 # We clear our screen
                 # And put our background over it
                 self.sprites.clear(self.screen, self.background)
 
-                # 2. Call update() methods from for classes 
+                # 2. Call update() methods from for classes
                 # That are from sprites
                 self.sprites.update()
 
-                # 3. Draws over what should be drawn, 
+                # 3. Draws over what should be drawn,
                 # Paste (or blits) all different images on screen
                 updated_sprites = self.sprites.draw(self.screen)
 
-                # 4 Returns the list of updated sprites 
+                # 4 Returns the list of updated sprites
                 # that were modified from last loop lap
                 pg.display.update(updated_sprites)
 
@@ -132,7 +132,7 @@ class Game:
             self.running = False
 
     def display_message(self, image):
-        """ method that adds a screen for GameOver 
+        """ method that adds a screen for GameOver
         or GameWon"""
         self.running = True
         self.background = image
