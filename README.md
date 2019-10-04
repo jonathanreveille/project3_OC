@@ -42,9 +42,8 @@ You are now ready to play.
 
 ### Launch the game
 #### In terminal mode :
-2. a) Set yourself at the root of the project (maze.2.2.1/)
-*  Write in your command line : 
-`python -m app`
+Same steps above except the last one will be 
+* `python -m app` instead of `python -m macgyver`
 
 
 ### Licence:
