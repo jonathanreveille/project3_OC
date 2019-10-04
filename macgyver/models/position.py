@@ -9,7 +9,7 @@ from macgyver.models.mouvement import Mouvement
 
 
 class Position:
-    """ This class will define where the hero is on the 
+    """ This class will define where the hero is on the
     map with the coordinates (x,y) """
 
     def __init__(self, x, y):
@@ -18,7 +18,7 @@ class Position:
         self.y = y
 
     def __repr__(self):
-        """ Method that returns with a string 
+        """ Method that returns with a string
         the positions by x and y """
         return f"Position({self.x},{self.y})"
 
@@ -32,7 +32,7 @@ class Position:
             return Position(self.x, (self.y + mouvement.dy))
 
     def __eq__(self, obj):
-        """ Method  to test if 2 positions are matching together"""
+        """ Method  to test if 2 positions are matching together """
         if not isinstance(obj, Position):
             position = obj.position
         else:
