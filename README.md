@@ -31,13 +31,14 @@ loose. If you want to suceed, I strongly recommande to **find the items before r
 0. Clone this project if you wish to play.
 
 1. First of all, first you need to **install pipenv** ,
-  and then launch
-*`pipenv install`
-*`pipenv run python macgyver`
-You are now ready to play, just one more step.
-This will install all *requirementes* needed for this project.
+  and then launch each other steps
+*`pipenv install` (install all requirements)
+*`pipenv shell` (activate virtual env)
+This will install all *requirements* needed for this project.
 The advantage of pipenv is that it is cross-platform. It is 
-recommended by the official documentation.
+recommended by the official documentation. 
+You are now ready to play.
+*`python -m macgyver` (launch the game pygame)
 
 ### Launch the game
 #### In terminal mode :
@@ -45,10 +46,6 @@ recommended by the official documentation.
 *  Write in your command line : 
 `python -m app`
 
-#### With Pygame :
-2. b)  Set yourself at the same position as in terminal, it will be launched with the file __main__ in /macgyver/views/
-* Write in your commande line : 
-`python -m macgyver`
 
 ### Licence:
 * Used artwork from [jessefreeman](https://www.jessefreeman.com), Licence : WTFPL
