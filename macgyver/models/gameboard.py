@@ -1,13 +1,13 @@
 #! /usr/bin/env python3
 # coding : utf-8
 
-""" this module will allow us to determine the length (and width) of the gameboard (map) """
+""" This module will allow us to determine the length
+ (and width) of the gameboard (map) """
 
-import os
 import random
 from random import sample
 
-from config.settings import MAZE_LVL1, START_CHAR, GUARD_CHAR, WALL_CHAR, PASSAGES_CHAR, HERO_CHAR
+from config.settings import settings #MAZE_LVL1, START_CHAR, GUARD_CHAR, WALL_CHAR, PASSAGES_CHAR, HERO_CHAR
 from macgyver.models.position import Position
 from macgyver.models.items import Item
 
@@ -36,7 +36,7 @@ class GameBoard:
         """ Loads map from a file, specific characters, understand and 
         remembers each position """
 
-        with open(MAZE_LVL1) as f:
+        with open(settings.MAZE_LVL1) as f:
             maze = [line.strip("") for line in f.readlines() if line.strip()]
             maze = list(maze)
 
@@ -49,20 +49,20 @@ class GameBoard:
                 pos = Position(n_colonne, n_lines)
 
                 # if we have the '.', add the position into self.passages list:
-                if colonne == PASSAGES_CHAR:
+                if colonne == settings.PASSAGES_CHAR:
                     self.passages.append(pos)
 
                 # if we have the 'S', add the position into self.passages list:
-                elif colonne == START_CHAR:
+                elif colonne == settings.START_CHAR:
                     self.passages.append(pos)
                     self.start = pos  # add position of 'S' to self.start
 
                 # if we have the 'G', add the position into self.passages list:
-                elif colonne == GUARD_CHAR:
+                elif colonne == settings.GUARD_CHAR:
                     self.passages.append(pos)
                     self.goal = pos  # add the position of 'G' to self.goal
 
-                elif colonne == WALL_CHAR:  # if we have 'W':
+                elif colonne == settings.WALL_CHAR:  # if we have 'W':
                     # add the position of 'W' to self.walls list
                     self.walls.append(pos)
 
@@ -82,17 +82,17 @@ class GameBoard:
 
                 if pos == self.hero.position:  # Check if the position is the one of the hero
                     # Add to this list : the characters 'H'saved with pos in load_from_file():
-                    list_str.append(HERO_CHAR)
+                    list_str.append(settings.HERO_CHAR)
                 elif pos == self.start:
-                    list_str.append(START_CHAR)
+                    list_str.append(settings.START_CHAR)
                 elif pos == self.goal:
-                    list_str.append(GUARD_CHAR)
+                    list_str.append(settings.GUARD_CHAR)
                 elif pos in self.items:
                     list_str.append(str(self.items[pos]))
                 elif pos in self.passages:
-                    list_str.append(PASSAGES_CHAR)
+                    list_str.append(settings.PASSAGES_CHAR)
                 elif pos in self.walls:
-                    list_str.append(WALL_CHAR)
+                    list_str.append(settings.WALL_CHAR)
 
             # Go back at the line at the end of each line
             list_str.append("\n")
