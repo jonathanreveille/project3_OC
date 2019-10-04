@@ -52,14 +52,14 @@ class Game:
             # copie and size of image
             self.background.blit(
                 self.wall, (wall.x * settings.SPRITE_WIDTH,
-                wall.y * settings.SPRITE_HEIGHT))
+                            wall.y * settings.SPRITE_HEIGHT))
 
         self.passages = pg.image.load(
             settings.PASSAGES).convert_alpha()
         for passages in self.gameboard.passages:
             self.background.blit(
                 self.passages, (passages.x * settings.SPRITE_WIDTH,
-                passages.y * settings.SPRITE_HEIGHT))
+                                passages.y * settings.SPRITE_HEIGHT))
 
         # Copie the background over the screen. It's called to '.blit()'.
         self.screen.blit(self.background, (0, 0), self.screen.get_rect())
@@ -96,7 +96,7 @@ class Game:
                 # Frame per seconds. In order words, the speed of the loop
                 clock.tick(40)
                 # Process to close the game window
-                self._process_quit_events() 
+                self._process_quit_events()
 
                 # 1. Cover the gamespace w/ bg
                 # We clear our screen
