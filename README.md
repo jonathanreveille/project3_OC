@@ -30,9 +30,9 @@ loose. If you want to suceed, I strongly recommand to **find the items before re
 ### Getting started:
 0. Clone this project if you wish to play.
 
-1. First of all, first you need to **install pipenv** ,
-  and then launch each other steps
-* `pipenv install` (install all requirements)
+First of all, first you need to **install pipenv**
+
+* 1. `pipenv install` (install all requirements)
 This will install all *requirements* needed for this project.
 The advantage of pipenv is that it is cross-platform. It is 
 recommended by the official documentation.
@@ -40,7 +40,6 @@ recommended by the official documentation.
 Then : 
 * `pipenv run python -m macgyver`
 You are now ready to play.
-
 
 ### Launch the game
 #### In terminal mode :
