@@ -48,7 +48,7 @@ You are now ready to play.
 * Other game arts from : https://www.opengameart.org, CC0 1.0 Universal (CC0 1.0), Public Domain Dedication
 
 ### Acknowledgement:
-:arrowright: I would like to give special thanks to ***Thierry Chappuis*** and ***Aurélien Massé*** :arrowleft:
+I would like to give special thanks to ***Thierry Chappuis*** and ***Aurélien Massé***
 for guiding me throughout this project.
 
 Here is a screen shot of the game, enjoy ! 
