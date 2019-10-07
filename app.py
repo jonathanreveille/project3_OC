@@ -5,7 +5,7 @@
 
 from macgyver.models.gameboard import GameBoard
 from macgyver.models.hero import Hero
-from macgyver.models.mouvement import left, right, up, down
+from macgyver.models import mouvement  # movement
 from macgyver.models.items import N, E, T
 from macgyver.exceptions.gamewon import GameWon
 from macgyver.exceptions.gameover import GameOver
@@ -32,7 +32,7 @@ def main():
                 "Where do you want hero to go (right/left/up/down/quit)? ")
 
             if travel in ('left', 'right', 'up', 'down'):
-                hero.move(globals()[travel])
+                hero.move(getattr(mouvement, travel))
 
     except GameWon as e:  # if won
         print(e)  # show message
