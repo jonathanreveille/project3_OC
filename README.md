@@ -34,13 +34,13 @@ needed for this project.
 The advantage of pipenv is that it is cross-platform. It is 
 recommended by the official documentation.
 
-2.a Then : 
+2.a. Then : 
 * `pipenv run python -m macgyver`
 You are now ready to play.
 
 ### Launch the game
 #### In terminal mode :
-2.Same steps above except the last one will be 
+2.b. Same steps above except the last one will be 
 * `pipenv run python -m app`
 
 ### Licence:
