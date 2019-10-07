@@ -23,29 +23,25 @@ loose. If you want to suceed, I strongly recommand to **find the items before re
 - Use of pipenv (virtual environment with Python 3)
 - Respect and follow recommandations from PEP8
 
-### Prerequisites:
-- pygame v.1.9.6
-- python v.3.7.4
-
 ### Getting started:
 0. Clone this project if you wish to play.
 
 First of all, first you need to **install pipenv**
 
 * 1. `pipenv install` (install all requirements)
-This will install all *requirements* needed for this project.
+This will install all *requirements* (pygame v.1.9.6 and python v.3.7.4)
+needed for this project.
 The advantage of pipenv is that it is cross-platform. It is 
 recommended by the official documentation.
 
-Then : 
+2.a Then : 
 * `pipenv run python -m macgyver`
 You are now ready to play.
 
 ### Launch the game
 #### In terminal mode :
-Same steps above except the last one will be 
+2.Same steps above except the last one will be 
 * `pipenv run python -m app`
-
 
 ### Licence:
 * Used artwork from [jessefreeman](https://www.jessefreeman.com), Licence : WTFPL
