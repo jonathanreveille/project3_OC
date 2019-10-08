@@ -15,7 +15,7 @@ class GameBoard:
     def __init__(self):
 
         self.length = None
-        self.width = None
+        self.height = None
         self.hero = None
         self.start = None
         self.goal = None
@@ -41,30 +41,30 @@ class GameBoard:
         # For each number of lines and lines in the maze
         for n_lines, lines in enumerate(maze):
             # For each number of colums and colums in the maze
-            for n_colonne, colonne in enumerate(lines):
+            for n_column, column in enumerate(lines):
 
                 # We save our positions with
                 # pos variable as (x,y) for each characters
-                pos = Position(n_colonne, n_lines)
+                pos = Position(n_column, n_lines)
 
                 # if we have the '.', add the position into self.passages list:
-                if colonne == settings.PASSAGES_CHAR:
+                if column == settings.PASSAGES_CHAR:
                     self.passages.append(pos)
 
                 # if we have the 'S', add the position into self.passages list:
-                elif colonne == settings.START_CHAR:
+                elif column == settings.START_CHAR:
                     self.passages.append(pos)
                     self.start = pos  # add position of 'S' to self.start
 
                 # if we have the 'G', add the position into self.passages list:
-                elif colonne == settings.GUARD_CHAR:
+                elif column == settings.GUARD_CHAR:
                     self.passages.append(pos)
                     self.goal = pos  # add the position of 'G' to self.goal
 
-                elif colonne == settings.WALL_CHAR:
+                elif column == settings.WALL_CHAR:
                     self.walls.append(pos)
-            # We add to self.width = +1 to n_colums
-            self.width = n_colonne + 1
+            # We add to self.height = +1 to n_colums
+            self.height = n_column + 1
             # We add to self.length +1 to n_lines
             self.length = n_lines + 1
 
@@ -76,8 +76,8 @@ class GameBoard:
 
         list_str = []
         for line in range(self.length):
-            for colonne in range(self.width):
-                pos = Position(colonne, line)
+            for column in range(self.height):
+                pos = Position(column, line)
 
                 # Check if the position is the one of the hero
                 if pos == self.hero.position:
