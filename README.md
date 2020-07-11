@@ -26,7 +26,7 @@ loose. If you want to suceed, I strongly recommand to **find the items before re
 ### Getting started:
 0. Clone this project if you wish to play.
 
-First of all, first you need to **install pipenv**
+First of all, first you need to **install p ipenv**
 
 * 1. `pipenv install` (install all requirements)
 This will install all *requirements* (pygame v.1.9.6 and python v.3.7.4)
